@@ -48,6 +48,23 @@ claude plugin install madhyamaka
 - [`skills/madhyamaka/agents/openai.yaml`](./skills/madhyamaka/agents/openai.yaml) 主要用于兼容 OpenAI / Codex 界面的展示
 - [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) 用于 Claude Code marketplace 的发现与安装
 
+## 发布方式
+
+对于这个仓库，默认最合适的做法是使用轻量的 Git 版本管理，而不是把版本号写进每个 skill 文件里。
+
+推荐流程：
+
+1. 把变更合并到 `main`。
+2. 用 `npx skills add BuddhismAI/buddhist-agent-skills --list` 验证安装与发现流程正常。
+3. 如果你希望保留明确的发布节点，可选地打 Git tag，例如 `v0.1.0`、`v0.2.0`、`v0.2.1`。
+4. 如果用户已经安装过 skill，提示他们执行 `npx skills update`。
+
+补充说明：
+
+- `skills-lock.json` 属于消费方项目里的安装状态文件，不是发布方仓库里的版本元数据。
+- 尽量保持 skill 的名字和路径稳定；像 `skills/madhyamaka/` 这种路径变更才算主要 breaking change。
+- 只有在某个特定 marketplace 明确要求时，再补充显式的 manifest 版本字段即可。
+
 ## 仓库目标
 
 这个仓库用于沉淀可复用的佛教主题 skill，服务于佛学学习、基于原始资料的推理，以及可持续积累的知识工作流。

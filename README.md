@@ -48,6 +48,23 @@ Different agents can read different optional metadata layers:
 - [`skills/madhyamaka/agents/openai.yaml`](./skills/madhyamaka/agents/openai.yaml) improves UI presentation for compatible OpenAI/Codex surfaces
 - [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) enables Claude Code marketplace discovery/install
 
+## Releasing
+
+For this repository, the best default is lightweight Git-based versioning rather than putting version numbers inside every skill file.
+
+Recommended workflow:
+
+1. Merge changes to `main`.
+2. Verify install/update behavior with `npx skills add BuddhismAI/buddhist-agent-skills --list`.
+3. Optionally create a Git tag such as `v0.1.0`, `v0.2.0`, or `v0.2.1` when you want a named release point.
+4. Tell users to run `npx skills update` if they already have the skill installed.
+
+Notes:
+
+- `skills-lock.json` is consumer-side install state, not publisher-side release metadata.
+- Keep the skill path and name stable when possible; renaming `skills/madhyamaka/` is the main breaking change.
+- Add explicit manifest version fields later only if a specific marketplace requires them.
+
 ## Purpose
 
 This repository holds reusable topic skills for Buddhist study, source-grounded reasoning, and knowledge-compounding workflows.
