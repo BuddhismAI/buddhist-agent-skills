@@ -1,8 +1,52 @@
 # Buddhist Agent Skills
 
-面向佛教主题的 AI Skill 与知识 wiki 的开源仓库。
+面向中观、空性、龙树等佛教主题的 AI Skill 与知识 wiki 的开源仓库。
 
 - English: [README.md](./README.md)
+
+## 支持的 Agent
+
+这个仓库是按共享的 Agent Skills 规范来组织的，所以核心 skill `skills/madhyamaka/SKILL.md` 不只是给 Codex / OpenAI 用，也可以被很多常见 coding agent 复用。
+
+常见目标包括：
+
+- Claude Code
+- Codex
+- Cursor
+- OpenCode
+- Gemini CLI
+- Cline 以及其他由 `skills` CLI 支持的 agent
+
+## 使用 `npx skills add` 安装
+
+最通用的安装方式是 `npx skills add`，它会把 GitHub 上的 `madhyamaka` skill 安装到你选择的兼容 agent 中。
+
+```bash
+# 安装到当前项目
+npx skills add BuddhismAI/buddhist-agent-skills --skill madhyamaka -y
+
+# 全局安装
+npx skills add BuddhismAI/buddhist-agent-skills --skill madhyamaka -g -y
+```
+
+之所以可以直接安装，是因为仓库里已经暴露了合法的 skill 路径 `skills/madhyamaka/SKILL.md`。
+
+## Claude Code Marketplace
+
+为了支持 Claude Code 的原生 marketplace 流程，这个仓库还提供了 [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json)。
+
+```bash
+claude plugin marketplace add BuddhismAI/buddhist-agent-skills
+claude plugin install madhyamaka
+```
+
+## Agent 元数据分层
+
+不同 agent 可以读取不同的可选元数据层：
+
+- [`skills/madhyamaka/SKILL.md`](./skills/madhyamaka/SKILL.md) 是跨 agent 的核心事实来源
+- [`skills/madhyamaka/agents/openai.yaml`](./skills/madhyamaka/agents/openai.yaml) 主要用于兼容 OpenAI / Codex 界面的展示
+- [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) 用于 Claude Code marketplace 的发现与安装
 
 ## 仓库目标
 
@@ -25,6 +69,21 @@
 - 能跨 agent 框架与产品形态复用的能力
 
 我们希望佛法内容不只停留在某一个应用里，而是能以谨慎、尊重传统、重视出处的方式，被更多 agent 和应用采用。
+
+## 检索关键词
+
+为了让这个仓库更容易被搜索到，README 会明确覆盖常见的中英文查询词，例如：
+
+- Buddhist AI skill
+- Madhyamaka AI
+- 中观 AI skill
+- 空性解释
+- 龙树学习助手
+- 月称 / 静命 / 麦彭 相关中观资料
+- 宁玛派中观
+- 应成派与自续派
+- 佛教 agent knowledge wiki
+- `npx skills add` 佛教 skill
 
 ## 为什么单独做一个仓库
 
@@ -74,7 +133,10 @@
 每个 topic skill 都是对应主题的规范知识主页，通常包含：
 
 - `SKILL.md` - 行为、路由与回答策略
+- `agents/*.yaml` - 面向不同 agent UI 的可选元数据
 - `references/` - 编译后的知识 wiki
+
+在仓库根目录，还可以加入像 `.claude-plugin/marketplace.json` 这样的可选打包文件，把同一套 skill 暴露给 agent 原生 marketplace。
 
 这些内容里通常还会包含索引与结构化参考材料；当它们与原文检索工具配合使用时，价值会发挥得更完整。
 

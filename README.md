@@ -1,8 +1,52 @@
 # Buddhist Agent Skills
 
-Open-source home for Buddhism-related AI skills and their compiled knowledge wikis.
+Open-source Buddhist AI skills for Madhyamaka, emptiness, Nagarjuna, and source-grounded Buddhist philosophy workflows.
 
 - Chinese / 中文说明: [README.zh-CN.md](./README.zh-CN.md)
+
+## Supported Agents
+
+This repository is built around the shared Agent Skills format, so the same `skills/madhyamaka/SKILL.md` can be installed into many coding agents, not just Codex/OpenAI.
+
+Common targets include:
+
+- Claude Code
+- Codex
+- Cursor
+- OpenCode
+- Gemini CLI
+- Cline and other agents supported by the `skills` CLI
+
+## Install With `npx skills add`
+
+The easiest cross-agent path is `npx skills add`, which installs the `madhyamaka` skill from GitHub into whichever compatible agent you choose.
+
+```bash
+# Install for the current project
+npx skills add BuddhismAI/buddhist-agent-skills --skill madhyamaka -y
+
+# Install globally
+npx skills add BuddhismAI/buddhist-agent-skills --skill madhyamaka -g -y
+```
+
+The install works because the repo exposes a valid skill at `skills/madhyamaka/SKILL.md`.
+
+## Claude Code Marketplace
+
+For Claude Code's native plugin marketplace flow, this repo also includes a marketplace manifest at [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json).
+
+```bash
+claude plugin marketplace add BuddhismAI/buddhist-agent-skills
+claude plugin install madhyamaka
+```
+
+## Agent Metadata
+
+Different agents can read different optional metadata layers:
+
+- [`skills/madhyamaka/SKILL.md`](./skills/madhyamaka/SKILL.md) is the portable, cross-agent source of truth
+- [`skills/madhyamaka/agents/openai.yaml`](./skills/madhyamaka/agents/openai.yaml) improves UI presentation for compatible OpenAI/Codex surfaces
+- [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) enables Claude Code marketplace discovery/install
 
 ## Purpose
 
@@ -23,6 +67,21 @@ More importantly, this repo exists to help make authentic Buddhist teachings ava
 - usable across many agent frameworks and product surfaces
 
 We want Buddhist teaching to be available not only inside one app, but across many agents and applications in a way that remains careful, source-aware, and respectful of the tradition.
+
+## Search Topics
+
+People looking for this project will often search with a mix of English, Chinese, Buddhist, and agent-related terms. This repo is intended to be discoverable for queries such as:
+
+- Buddhist AI skill
+- Madhyamaka AI
+- 中观 AI skill
+- emptiness / 空性 explanation
+- Nagarjuna / 龙树 study assistant
+- Chandrakirti / 月称 reasoning
+- Nyingma Buddhist philosophy
+- Prasangika vs Svatantrika
+- Buddhist knowledge wiki for agents
+- `npx skills add` Buddhist skill
 
 ## Why A Separate Repository
 
@@ -72,7 +131,10 @@ Planned future candidates:
 Each topic skill is the canonical home for:
 
 - `SKILL.md` - behavior, routing, and answering guidance
+- `agents/*.yaml` - optional agent-specific UI metadata
 - `references/` - compiled wiki pages
+
+At repository level, optional packaging files such as `.claude-plugin/marketplace.json` can expose the same skills through agent-native marketplaces.
 
 These files often include indexes and structured reference material that become much more powerful when paired with source retrieval tooling.
 
