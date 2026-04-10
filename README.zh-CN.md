@@ -4,9 +4,22 @@
 
 - English: [README.md](./README.md)
 
+## 支持的 Agent
+
+这个仓库是按共享的 Agent Skills 规范来组织的，所以核心 skill `skills/madhyamaka/SKILL.md` 不只是给 Codex / OpenAI 用，也可以被很多常见 coding agent 复用。
+
+常见目标包括：
+
+- Claude Code
+- Codex
+- Cursor
+- OpenCode
+- Gemini CLI
+- Cline 以及其他由 `skills` CLI 支持的 agent
+
 ## 使用 `npx skills add` 安装
 
-这个仓库已经采用标准 Agent Skills 目录结构，因此可以直接通过 `npx skills add` 安装 `madhyamaka` skill。
+最通用的安装方式是 `npx skills add`，它会把 GitHub 上的 `madhyamaka` skill 安装到你选择的兼容 agent 中。
 
 ```bash
 # 安装到当前项目
@@ -16,7 +29,24 @@ npx skills add BuddhismAI/buddhist-agent-skills --skill madhyamaka -y
 npx skills add BuddhismAI/buddhist-agent-skills --skill madhyamaka -g -y
 ```
 
-之所以可以直接安装，是因为仓库里已经暴露了合法的 skill 路径 `skills/madhyamaka/SKILL.md`。为了让兼容的 agent UI 更好地展示这个 skill，还新增了 [`skills/madhyamaka/agents/openai.yaml`](./skills/madhyamaka/agents/openai.yaml) 元数据。
+之所以可以直接安装，是因为仓库里已经暴露了合法的 skill 路径 `skills/madhyamaka/SKILL.md`。
+
+## Claude Code Marketplace
+
+为了支持 Claude Code 的原生 marketplace 流程，这个仓库还提供了 [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json)。
+
+```bash
+claude plugin marketplace add BuddhismAI/buddhist-agent-skills
+claude plugin install madhyamaka
+```
+
+## Agent 元数据分层
+
+不同 agent 可以读取不同的可选元数据层：
+
+- [`skills/madhyamaka/SKILL.md`](./skills/madhyamaka/SKILL.md) 是跨 agent 的核心事实来源
+- [`skills/madhyamaka/agents/openai.yaml`](./skills/madhyamaka/agents/openai.yaml) 主要用于兼容 OpenAI / Codex 界面的展示
+- [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) 用于 Claude Code marketplace 的发现与安装
 
 ## 仓库目标
 
@@ -103,8 +133,10 @@ npx skills add BuddhismAI/buddhist-agent-skills --skill madhyamaka -g -y
 每个 topic skill 都是对应主题的规范知识主页，通常包含：
 
 - `SKILL.md` - 行为、路由与回答策略
-- `agents/openai.yaml` - 面向兼容 agent UI 的可选元数据
+- `agents/*.yaml` - 面向不同 agent UI 的可选元数据
 - `references/` - 编译后的知识 wiki
+
+在仓库根目录，还可以加入像 `.claude-plugin/marketplace.json` 这样的可选打包文件，把同一套 skill 暴露给 agent 原生 marketplace。
 
 这些内容里通常还会包含索引与结构化参考材料；当它们与原文检索工具配合使用时，价值会发挥得更完整。
 

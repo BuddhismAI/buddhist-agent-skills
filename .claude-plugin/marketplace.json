@@ -1,0 +1,19 @@
+{
+  "name": "buddhist-agent-skills",
+  "owner": {
+    "name": "BuddhismAI"
+  },
+  "metadata": {
+    "description": "Open-source Buddhist agent skills and knowledge wikis for Madhyamaka study and source-grounded reasoning"
+  },
+  "plugins": [
+    {
+      "name": "madhyamaka",
+      "description": "Nyingma Madhyamaka study companion for emptiness, two truths, and classic debates",
+      "source": "./",
+      "skills": [
+        "./skills/madhyamaka"
+      ]
+    }
+  ]
+}
