@@ -1,8 +1,22 @@
 # Buddhist Agent Skills
 
-面向佛教主题的 AI Skill 与知识 wiki 的开源仓库。
+面向中观、空性、龙树等佛教主题的 AI Skill 与知识 wiki 的开源仓库。
 
 - English: [README.md](./README.md)
+
+## 使用 `npx skills add` 安装
+
+这个仓库已经采用标准 Agent Skills 目录结构，因此可以直接通过 `npx skills add` 安装 `madhyamaka` skill。
+
+```bash
+# 安装到当前项目
+npx skills add BuddhismAI/buddhist-agent-skills --skill madhyamaka -y
+
+# 全局安装
+npx skills add BuddhismAI/buddhist-agent-skills --skill madhyamaka -g -y
+```
+
+之所以可以直接安装，是因为仓库里已经暴露了合法的 skill 路径 `skills/madhyamaka/SKILL.md`。为了让兼容的 agent UI 更好地展示这个 skill，还新增了 [`skills/madhyamaka/agents/openai.yaml`](./skills/madhyamaka/agents/openai.yaml) 元数据。
 
 ## 仓库目标
 
@@ -25,6 +39,21 @@
 - 能跨 agent 框架与产品形态复用的能力
 
 我们希望佛法内容不只停留在某一个应用里，而是能以谨慎、尊重传统、重视出处的方式，被更多 agent 和应用采用。
+
+## 检索关键词
+
+为了让这个仓库更容易被搜索到，README 会明确覆盖常见的中英文查询词，例如：
+
+- Buddhist AI skill
+- Madhyamaka AI
+- 中观 AI skill
+- 空性解释
+- 龙树学习助手
+- 月称 / 静命 / 麦彭 相关中观资料
+- 宁玛派中观
+- 应成派与自续派
+- 佛教 agent knowledge wiki
+- `npx skills add` 佛教 skill
 
 ## 为什么单独做一个仓库
 
@@ -74,6 +103,7 @@
 每个 topic skill 都是对应主题的规范知识主页，通常包含：
 
 - `SKILL.md` - 行为、路由与回答策略
+- `agents/openai.yaml` - 面向兼容 agent UI 的可选元数据
 - `references/` - 编译后的知识 wiki
 
 这些内容里通常还会包含索引与结构化参考材料；当它们与原文检索工具配合使用时，价值会发挥得更完整。
