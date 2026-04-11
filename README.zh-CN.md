@@ -6,7 +6,7 @@
 
 ## 支持的 Agent
 
-这个仓库是按共享的 Agent Skills 规范来组织的，所以核心 skill `skills/madhyamaka/SKILL.md` 不只是给 Codex / OpenAI 用，也可以被很多常见 coding agent 复用。
+这个仓库是按共享的 Agent Skills 规范来组织的，所以核心 skill `skills/buddhism/SKILL.md` 不只是给 Codex / OpenAI 用，也可以被很多常见 coding agent 复用。
 
 常见目标包括：
 
@@ -19,17 +19,17 @@
 
 ## 使用 `npx skills add` 安装
 
-最通用的安装方式是 `npx skills add`，它会把 GitHub 上的 `madhyamaka` skill 安装到你选择的兼容 agent 中。
+最通用的安装方式是 `npx skills add`，它会把 GitHub 上的 `buddhism` skill 安装到你选择的兼容 agent 中。
 
 ```bash
 # 安装到当前项目
-npx skills add BuddhismAI/buddhist-agent-skills --skill madhyamaka -y
+npx skills add BuddhismAI/buddhist-agent-skills --skill buddhism -y
 
 # 全局安装
-npx skills add BuddhismAI/buddhist-agent-skills --skill madhyamaka -g -y
+npx skills add BuddhismAI/buddhist-agent-skills --skill buddhism -g -y
 ```
 
-之所以可以直接安装，是因为仓库里已经暴露了合法的 skill 路径 `skills/madhyamaka/SKILL.md`。
+之所以可以直接安装，是因为仓库里已经暴露了合法的 skill 路径 `skills/buddhism/SKILL.md`。
 
 ## Claude Code Marketplace
 
@@ -37,15 +37,15 @@ npx skills add BuddhismAI/buddhist-agent-skills --skill madhyamaka -g -y
 
 ```bash
 claude plugin marketplace add BuddhismAI/buddhist-agent-skills
-claude plugin install madhyamaka
+claude plugin install buddhism
 ```
 
 ## Agent 元数据分层
 
 不同 agent 可以读取不同的可选元数据层：
 
-- [`skills/madhyamaka/SKILL.md`](./skills/madhyamaka/SKILL.md) 是跨 agent 的核心事实来源
-- [`skills/madhyamaka/agents/openai.yaml`](./skills/madhyamaka/agents/openai.yaml) 主要用于兼容 OpenAI / Codex 界面的展示
+- [`skills/buddhism/SKILL.md`](./skills/buddhism/SKILL.md) 是跨 agent 的核心事实来源
+- [`skills/buddhism/agents/openai.yaml`](./skills/buddhism/agents/openai.yaml) 主要用于兼容 OpenAI / Codex 界面的展示
 - [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) 用于 Claude Code marketplace 的发现与安装
 
 ## 发布方式
@@ -62,7 +62,7 @@ claude plugin install madhyamaka
 补充说明：
 
 - `skills-lock.json` 属于消费方项目里的安装状态文件，不是发布方仓库里的版本元数据。
-- 尽量保持 skill 的名字和路径稳定；像 `skills/madhyamaka/` 这种路径变更才算主要 breaking change。
+- 尽量保持 skill 的名字和路径稳定；像 `skills/buddhism/` 这种路径变更才算主要 breaking change。
 - 只有在某个特定 marketplace 明确要求时，再补充显式的 manifest 版本字段即可。
 
 ## 仓库目标
@@ -165,7 +165,7 @@ cursor mcp add --transport http buddhist-texts https://api.shuiyue.ai/mcp
 
 **Base URL:** `https://api.shuiyue.ai`
 
-无需认证。完整接口文档见 [`skills/madhyamaka/references/public-api.md`](./skills/madhyamaka/references/public-api.md)。
+无需认证。完整接口文档见 [`skills/buddhism/references/public-api.md`](./skills/buddhism/references/public-api.md)。
 
 ### 两者如何配合
 
@@ -182,33 +182,28 @@ cursor mcp add --transport http buddhist-texts https://api.shuiyue.ai/mcp
 
 ## 当前范围
 
-目前首先从以下主题开始：
+`skills/buddhism/` 是一个统一的 skill 包，通过 per-topic index 提供主题深度：
 
-- `skills/madhyamaka/` - 中观 skill 与主题 wiki
+- **madhyamaka** (中观) -- 完整覆盖：4 个 collection，约 97 篇 wiki 文档
+- **另有 7 个主题计划中**（pramana、foundations、abhidharma、prajnaparamita、vinaya、tantra、pure-land）-- 随 collection 处理逐步创建
 
-后续可能扩展到：
-
-- `skills/yogachara/`
-- `skills/pramana/`
-- `skills/lamrim/`
-- `skills/buddhism/` - 跨主题的轻量总览 / 路由 skill
+完整主题清单见 `skills/buddhism/references/maps/topic-index.md`。
 
 ## 仓库结构
 
-每个 topic skill 都是对应主题的规范知识主页，通常包含：
+```
+skills/buddhism/
+  SKILL.md                              # 统一的行为与路由
+  agents/openai.yaml                    # Agent UI 元数据
+  references/
+    topics/<topic>/index.md             # 主题级概念地图、正确性锚点
+    topics/<topic>/*.md                 # 跨 collection 综合文档
+    collections/<collection>/           # 单 collection wiki 文档
+    maps/                               # 主题与 collection 索引
+    public-api.md                       # REST API 文档
+```
 
-- `SKILL.md` - 行为、路由与回答策略
-- `agents/*.yaml` - 面向不同 agent UI 的可选元数据
-- `references/` - 编译后的知识 wiki
-
-在仓库根目录，还可以加入像 `.claude-plugin/marketplace.json` 这样的可选打包文件，把同一套 skill 暴露给 agent 原生 marketplace。
-
-这些内容里通常还会包含索引与结构化参考材料；当它们与原文检索工具配合使用时，价值会发挥得更完整。
-
-在单个 topic skill 内部：
-
-- `references/*.md` 用于跨 collection 的综合文档
-- `references/collections/*` 用于单个 collection 的 wiki
+仓库根目录的 `.claude-plugin/marketplace.json` 用于将 skill 暴露给 agent 原生 marketplace。
 
 ## 这些 Skill 是如何生成的
 

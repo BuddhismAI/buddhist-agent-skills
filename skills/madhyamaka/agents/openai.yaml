@@ -1,7 +1,0 @@
-interface:
-  display_name: "Madhyamaka"
-  short_description: "Nyingma Madhyamaka study companion"
-  default_prompt: "Use $madhyamaka to explain emptiness, two truths, or Madhyamaka debates from Nyingma sources."
-
-policy:
-  allow_implicit_invocation: true

@@ -10,13 +10,10 @@ The initial topic is `madhyamaka`, but the repository is intended to grow into a
 
 ## Structure
 
-- `skills/<topic>/SKILL.md` - behavior and routing instructions
-- `skills/<topic>/references/` - compiled knowledge wiki
-
-Inside a topic skill:
-
-- `references/*.md` is the cross-collection layer
-- `references/collections/*` is the per-collection wiki layer
+- `skills/buddhism/SKILL.md` - unified behavior and routing instructions
+- `skills/buddhism/references/topics/<topic>/` - per-topic behavior docs, concept maps, correctness anchors
+- `skills/buddhism/references/collections/` - per-collection wiki docs
+- `skills/buddhism/references/maps/` - topic and collection indexes
 
 ## Language Convention
 
@@ -29,7 +26,13 @@ Inside a topic skill:
 - Keep docs clear, concise, and welcoming to outside contributors.
 - Prefer generic, reusable language over app-specific assumptions.
 - When modifying files in this repository, keep commits scoped and descriptive.
-- Preserve the topic-skill architecture rather than collapsing everything into one monolithic Buddhism skill.
+- Maintain the unified Buddhism skill with per-topic depth through topic index docs (`references/topics/<topic>/index.md`). Add new topics as collections are processed, not speculatively.
+
+## Development Workflow
+
+- This repo is a **public skill repo** — keep it clean of development artifacts (specs, design docs, scripts, logs).
+- All development work (specs, design docs, ingestion pipelines, evaluation data, architecture notes) belongs in the `development/` submodule.
+- Only publish finished skills and their references to the top-level `skills/` directory.
 
 ## Open Source Defaults
 

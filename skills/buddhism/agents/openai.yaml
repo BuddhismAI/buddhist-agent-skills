@@ -1,0 +1,7 @@
+interface:
+  display_name: "Buddhism"
+  short_description: "Buddhist study companion (Nyingma tradition)"
+  default_prompt: "Use $buddhism for questions about Madhyamaka, emptiness, two truths, Buddhist philosophy, or debates from Nyingma tradition sources."
+
+policy:
+  allow_implicit_invocation: true

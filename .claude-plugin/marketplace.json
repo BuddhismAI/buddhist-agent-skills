@@ -4,15 +4,15 @@
     "name": "BuddhismAI"
   },
   "metadata": {
-    "description": "Open-source Buddhist agent skills and knowledge wikis for Madhyamaka study and source-grounded reasoning"
+    "description": "Open-source Buddhist agent skills and knowledge wikis for source-grounded Buddhist philosophy (Nyingma tradition)"
   },
   "plugins": [
     {
-      "name": "madhyamaka",
-      "description": "Nyingma Madhyamaka study companion for emptiness, two truths, and classic debates",
+      "name": "buddhism",
+      "description": "Buddhist study companion for Madhyamaka, pramana, and more (Nyingma tradition sources)",
       "source": "./",
       "skills": [
-        "./skills/madhyamaka"
+        "./skills/buddhism"
       ]
     }
   ]
