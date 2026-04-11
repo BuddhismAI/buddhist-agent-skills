@@ -136,6 +136,21 @@ codex mcp add --transport http buddhist-texts https://api.shuiyue.ai/mcp
 
 # Antigravity
 antigravity mcp add --transport http buddhist-texts https://api.shuiyue.ai/mcp
+
+# Cursor
+cursor mcp add --transport http buddhist-texts https://api.shuiyue.ai/mcp
+```
+
+或直接写入 MCP 配置文件：
+
+```json
+{
+  "mcpServers": {
+    "buddhist-texts": {
+      "url": "https://api.shuiyue.ai/mcp"
+    }
+  }
+}
 ```
 
 ### 方式二：REST API（auto-fallback）
