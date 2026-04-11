@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}} — 中观 Wiki</title>
+  <link rel="stylesheet" href="{{ROOT}}style.css">
+</head>
+<body class="{{BODY_CLASS}}">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="menu-toggle" aria-label="菜单" onclick="document.body.classList.toggle('sidebar-open')">☰</button>
+      <a class="site-name" href="{{ROOT}}index.html">中观 Wiki</a>
+      <div class="header-right">
+        <div class="search-wrap">
+          <input type="text" class="search-input" placeholder="搜索..." aria-label="搜索" autocomplete="off">
+          <div class="search-results"></div>
+        </div>
+        <nav class="header-links">
+          <a href="{{ROOT}}index.html">首页</a>
+          <a href="{{ROOT}}topics/madhyamaka/index.html">专题</a>
+          <a href="{{ROOT}}maps/collection-index.html">索引</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="sidebar-overlay" onclick="document.body.classList.remove('sidebar-open')"></div>
+
+  <div class="page-body">
+    {{SIDEBAR}}
+    <main class="content">
+      {{BREADCRUMBS}}
+      <article>
+        {{TOC_BOX}}
+        {{CONTENT}}
+      </article>
+      {{PREV_NEXT}}
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>内容由 AI 整理自索达吉堪布等善知识讲解 · 宁玛派传承</p>
+  </footer>
+
+  <script>
+  // Search
+  (function(){
+    const root = '{{ROOT}}';
+    let idx = null;
+    const input = document.querySelector('.search-input');
+    const results = document.querySelector('.search-results');
+    input.addEventListener('focus', async function() {
+      if (!idx) {
+        try {
+          const r = await fetch(root + 'search-index.json');
+          idx = await r.json();
+        } catch(e) { idx = []; }
+      }
+    });
+    input.addEventListener('input', function() {
+      const q = this.value.trim().toLowerCase();
+      if (!q || !idx) { results.innerHTML = ''; results.style.display = 'none'; return; }
+      const hits = idx.filter(p =>
+        p.t.toLowerCase().includes(q) || p.l.toLowerCase().includes(q) || p.c.toLowerCase().includes(q)
+      ).slice(0, 8);
+      if (!hits.length) {
+        results.innerHTML = '<div class="sr-empty">未找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(h =>
+          '<a class="sr-item" href="' + root + h.u + '">' +
+          '<span class="sr-title">' + h.l + '</span>' +
+          (h.c ? '<span class="sr-coll">' + h.c + '</span>' : '') +
+          '</a>'
+        ).join('');
+      }
+      results.style.display = 'block';
+    });
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-wrap')) {
+        results.style.display = 'none';
+      }
+    });
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') { this.value = ''; results.style.display = 'none'; }
+    });
+  })();
+  </script>
+
+</body>
+</html>
