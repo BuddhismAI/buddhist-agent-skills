@@ -113,11 +113,11 @@ That separation makes it easier to:
 
 ## Skills + Source Lookup
 
-This repository is designed to work alongside a public source-lookup service for searching and fetching Buddhist teaching texts. No authentication required. Connect via MCP for the best experience. If your agent doesn't support MCP, the skill automatically teaches the agent to call the REST API as a fallback — no manual setup needed.
+This repository is designed to work alongside a public source-lookup service for searching and fetching Buddhist teaching texts. No authentication required. Two ways to connect:
 
-### MCP Server (for AI agents)
+### Option 1: MCP Server (manual setup)
 
-Connect to the remote MCP server at `https://api.shuiyue.ai/mcp` for tool-based access:
+Best experience for MCP-compatible agents. One-time setup:
 
 | Tool | Description |
 |------|-------------|
@@ -128,11 +128,17 @@ Connect to the remote MCP server at `https://api.shuiyue.ai/mcp` for tool-based 
 ```bash
 # Claude Code
 claude mcp add --transport http buddhist-texts https://api.shuiyue.ai/mcp
+
+# Codex
+codex mcp add --transport http buddhist-texts https://api.shuiyue.ai/mcp
+
+# Antigravity
+antigravity mcp add --transport http buddhist-texts https://api.shuiyue.ai/mcp
 ```
 
-### REST API (for any client)
+### Option 2: REST API (auto-fallback)
 
-If MCP is not available in your environment, call the JSON endpoints directly:
+No setup needed — the skill automatically teaches agents to call these endpoints when MCP is not available.
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|

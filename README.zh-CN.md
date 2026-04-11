@@ -115,11 +115,11 @@ claude plugin install madhyamaka
 
 ## Skill 与原文检索服务的配合
 
-这个仓库的设计，需要与一个公开的原文检索服务配合使用——用于搜索和获取佛教教言原文，无需认证。推荐通过 MCP 连接以获得最佳体验。如果你的 Agent 不支持 MCP，Skill 会自动引导它调用 REST API 作为替代——不需要额外配置。
+搜索教言语料、获取全文，无需认证。两种接入方式：
 
-### MCP Server（面向 AI Agent）
+### 方式一：MCP Server（需手动配置）
 
-连接远程 MCP 服务器 `https://api.shuiyue.ai/mcp`，通过工具调用访问：
+支持 MCP 的 Agent 推荐使用，一次配置即可：
 
 | 工具 | 说明 |
 |------|------|
@@ -130,11 +130,17 @@ claude plugin install madhyamaka
 ```bash
 # Claude Code
 claude mcp add --transport http buddhist-texts https://api.shuiyue.ai/mcp
+
+# Codex
+codex mcp add --transport http buddhist-texts https://api.shuiyue.ai/mcp
+
+# Antigravity
+antigravity mcp add --transport http buddhist-texts https://api.shuiyue.ai/mcp
 ```
 
-### REST API（面向任意客户端）
+### 方式二：REST API（auto-fallback）
 
-如果你的环境不支持 MCP，可以直接调用 JSON 接口：
+无需配置——没有 MCP 时，Skill 会自动引导 Agent 调用这些端点。
 
 | 端点 | 方法 | 说明 |
 |------|------|------|
