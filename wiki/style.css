@@ -274,42 +274,48 @@ a:hover { text-decoration: underline; }
 .breadcrumbs a:hover { color: var(--link); }
 
 /* -- Article typography ---------------------------------------------------- */
-article { display: flow-root; }
+article {
+  display: flow-root;
+  max-width: 720px;
+  font-size: 1.05rem;
+  line-height: 2;
+}
 article h1, article h2, article h3, article h4 {
   font-family: var(--font-ui);
   color: var(--text-heading);
   font-weight: 600;
+  line-height: 1.4;
 }
 article h1 {
   font-size: 1.7rem;
   border-bottom: 1px solid var(--border);
   padding-bottom: 0.25rem;
-  margin: 0 0 0.8rem;
+  margin: 0 0 1rem;
 }
 article h2 {
   font-size: 1.3rem;
   border-bottom: 1px solid var(--border-light);
   padding-bottom: 0.15rem;
-  margin: 2rem 0 0.6rem;
+  margin: 2.5rem 0 0.8rem;
 }
 article h3 {
   font-size: 1.1rem;
-  margin: 1.5rem 0 0.4rem;
+  margin: 2rem 0 0.6rem;
 }
 article h4 {
   font-size: 1rem;
-  margin: 1.2rem 0 0.3rem;
+  margin: 1.5rem 0 0.4rem;
 }
-article p { margin: 0.6rem 0; }
+article p { margin: 0.8rem 0; }
 article ul, article ol {
   padding-left: 1.6em;
-  margin: 0.5rem 0;
+  margin: 0.8rem 0;
 }
-article li { margin: 0.25rem 0; }
+article li { margin: 0.4rem 0; }
 article blockquote {
   border-left: 3px solid var(--border);
-  margin: 0.8rem 0;
-  padding: 0.3rem 0 0.3rem 1rem;
+  margin: 1rem 0;
+  padding: 0.4rem 0 0.4rem 1.2rem;
   color: var(--text-dim);
 }
 article strong { color: var(--text-heading); }
