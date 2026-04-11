@@ -113,7 +113,7 @@ That separation makes it easier to:
 
 ## Skills + Source Lookup
 
-This repository is designed to work alongside a public source-lookup service for searching and fetching Buddhist teaching texts. The service is available in two flavors — choose whichever fits your stack:
+This repository is designed to work alongside a public source-lookup service for searching and fetching Buddhist teaching texts. No authentication required. Connect via MCP for the best experience. If your agent doesn't support MCP, the skill automatically teaches the agent to call the REST API as a fallback — no manual setup needed.
 
 ### MCP Server (for AI agents)
 
