@@ -1,6 +1,6 @@
 # Buddhist Agent Skills
 
-Open-source Buddhist AI skills for Madhyamaka, emptiness, Nagarjuna, and source-grounded Buddhist philosophy workflows.
+Open-source Buddhist AI skills for Madhyamaka, emptiness, Nagarjuna, and source-grounded Buddhist philosophy workflows. Includes a public MCP server and REST API for corpus search and full-text retrieval — no authentication required.
 
 - Chinese / 中文说明: [README.zh-CN.md](./README.zh-CN.md)
 
@@ -113,21 +113,48 @@ That separation makes it easier to:
 
 ## Skills + Source Lookup
 
-This repository is designed to work alongside a public remote MCP tool for source lookup.
+This repository is designed to work alongside a public source-lookup service for searching and fetching Buddhist teaching texts. The service is available in two flavors — choose whichever fits your stack:
 
-That MCP piece is still TBD and is not included in this repository yet.
+### MCP Server (for AI agents)
+
+Connect to the remote MCP server at `https://api.shuiyue.ai/mcp` for tool-based access:
+
+| Tool | Description |
+|------|-------------|
+| `search_hybrid` | Search across local corpus and fashi.ai with reranking |
+| `fetch_local` | Fetch full text from local corpus by source path |
+| `fetch_fashi` | Fetch full fashi.ai document by segment ID |
+
+```bash
+# Claude Code
+claude mcp add --transport http buddhist-texts https://api.shuiyue.ai/mcp
+```
+
+### REST API (for any client)
+
+If MCP is not available in your environment, call the JSON endpoints directly:
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/v1/search` | POST | Search Buddhist teaching corpora |
+| `/api/v1/local/{source_path}` | GET | Fetch full text from local corpus |
+| `/api/v1/fashi/{segment_id}` | GET | Fetch fashi.ai document by segment ID |
+
+**Base URL:** `https://api.shuiyue.ai`
+
+No authentication required. See [`skills/madhyamaka/references/public-api.md`](./skills/madhyamaka/references/public-api.md) for full endpoint documentation.
+
+### How they work together
 
 The two pieces serve different roles:
 
 - this repo provides the skill behavior, topic maps, correctness anchors, and compiled knowledge indexes
-- the MCP tool, once available, will provide direct lookup into original source material and related corpus data
-
-That combination matters. On their own, skills can give an agent a strong conceptual map, but pairing them with source lookup helps the agent stay grounded in original teachings and retrieve supporting evidence more reliably.
+- the source-lookup service provides direct search and retrieval of original source material
 
 In other words:
 
 - the skill helps the agent understand what it is looking at
-- the MCP helps the agent find the underlying source material
+- the source service helps the agent find the underlying source material
 - together they help agents answer Buddhist questions more completely and more faithfully
 
 ## Current Scope

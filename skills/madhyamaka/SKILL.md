@@ -8,7 +8,7 @@ description: |
 
 # Madhyamaka (中观) Answering Framework
 
-> **⚠️ KNOWLEDGE-FIRST, THEN CORPUS SEARCH**: This skill contains pre-compiled knowledge wikis — your intellectual framework for Madhyamaka questions. **Read the relevant reference files first** (see Concept Router below), then do targeted corpus search for `ref:` citations. The reference files tell you WHAT to say and HOW to connect it; corpus search gives you WHERE to cite. When source access is available, every substantive point in your final answer should have a `ref:` citation from corpus search results. If you do not have MCP or other source access for verification, you may still answer from the compiled wiki, but you must explicitly tell the user that you could not verify the answer against the actual source material, and you should still name the main texts or collection sources relevant to the key points as reading guidance for the user.
+> **⚠️ KNOWLEDGE-FIRST, THEN CORPUS SEARCH**: This skill contains pre-compiled knowledge wikis — your intellectual framework for Madhyamaka questions. **Read the relevant reference files first** (see Concept Router below), then do targeted corpus search for `ref:` citations. The reference files tell you WHAT to say and HOW to connect it; corpus search gives you WHERE to cite. When source access is available, every substantive point in your final answer should have a `ref:` citation from corpus search results. Source access has two paths: (1) MCP tools (`search_hybrid`, `fetch_local`, `fetch_fashi`) if connected, or (2) the public REST API at `https://api.shuiyue.ai/api/v1` — see `references/public-api.md` for endpoint details. If neither MCP nor HTTP calls are available, you may still answer from the compiled wiki, but you must explicitly tell the user that you could not verify the answer against the actual source material, and you should still name the main texts or collection sources relevant to the key points as reading guidance for the user.
 
 This skill guides how to search, interpret, construct answers, and choose representations for Madhyamaka philosophy questions. 其知识基础建立在**宁玛派**相关论典、讲记与整理后的专题 wiki 之上，包括益西彭措堪布《中观总义》、麦彭仁波切《抉择二无我》，以及围绕《中论》《中观庄严论》《中观四百论》《解义慧剑》等材料逐步形成的 collection wiki，并吸收相应注释与讲授语境。
 
@@ -68,7 +68,7 @@ For every Madhyamaka question, follow this flow — prioritizing quick initial v
 4. **Edit the card** to add `ref:` citations and any additional evidence. Remove the `待补充引用` markers.
 5. **Suggest follow-ups** — let the user steer depth.
 
-If MCP or other source-access tooling is unavailable, skip the citation pass and answer from the compiled wiki, but explicitly state that the answer is not verified against the original source text. Even in that case, still mention the main texts, treatises, or collection docs relevant to the key points so the reader has directional references.
+If MCP is not connected, use the public REST API directly (see `references/public-api.md`): search via `POST /api/v1/search`, then fetch full text via `GET /api/v1/local/{source_path}` or `GET /api/v1/fashi/{segment_id}`. If neither MCP nor HTTP calls are available, skip the citation pass and answer from the compiled wiki, but explicitly state that the answer is not verified against the original source text. Even in that case, still mention the main texts, treatises, or collection docs relevant to the key points so the reader has directional references.
 
 The wiki gives you enough to write a good initial answer immediately. Don't wait for corpus search to start writing — the user shouldn't wait 2+ minutes for a card when the wiki already has the framework. Search is for grounding with citations, not for discovering the answer.
 
@@ -276,7 +276,7 @@ For Skill+Light questions (simple concepts), keep cards brief per the system pro
 
 ### Self-check
 
-Before finalizing: (1) If source access is available, does every major claim have a `ref:` citation? (2) If source access is unavailable, did I explicitly tell the user the answer is not verified against the original source? (3) If source access is unavailable, did I still mention the main relevant texts or collection docs for the key points? (4) Does each point have reasoning, not just assertions? (5) Did I check against correctness anchors (§5)? (6) Would a practitioner learn something from this?
+Before finalizing: (1) If source access is available (MCP or REST API), does every major claim have a `ref:` citation? (2) If source access is unavailable, did I explicitly tell the user the answer is not verified against the original source? (3) If source access is unavailable, did I still mention the main relevant texts or collection docs for the key points? (4) Does each point have reasoning, not just assertions? (5) Did I check against correctness anchors (§5)? (6) Would a practitioner learn something from this?
 
 ## 8. Representation Strategy
 
@@ -351,3 +351,4 @@ These are your primary knowledge source for Madhyamaka topics. Read them first t
 - `references/debates.md` — 核心辩论：遮破显现、无承认、十三种诤辩
 - `references/yogachara-madhyamaka.md` — 瑜伽行中观：二理妙车、阿赖耶识、四步境界
 - `references/collections/` — Per-collection wikis; start with the collection's `结构总览.md`
+- `references/public-api.md` — REST API endpoints for corpus search and fetch when MCP is unavailable

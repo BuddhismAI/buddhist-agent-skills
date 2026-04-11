@@ -1,6 +1,6 @@
 # Buddhist Agent Skills
 
-面向中观、空性、龙树等佛教主题的 AI Skill 与知识 wiki 的开源仓库。
+面向中观、空性、龙树等佛教主题的 AI Skill 与知识 wiki 的开源仓库。提供公开的 MCP Server 和 REST API，支持语料搜索和全文获取，无需认证。
 
 - English: [README.md](./README.md)
 
@@ -113,23 +113,50 @@ claude plugin install madhyamaka
 - 更适合开源，也更方便外部协作
 - 让 topic skill 成为稳定的共享基础设施，而不是某个应用私有的 prompt 文件
 
-## Skill 与原文检索工具的配合
+## Skill 与原文检索服务的配合
 
-这个仓库的设计，未来会与一个公共的远程 MCP 原文检索工具配合使用。
+这个仓库的设计，需要与一个公开的原文检索服务配合使用——用于搜索和获取佛教教言原文。该服务提供两种接入方式，可根据需要选择：
 
-不过这部分目前仍在规划中，暂时还不包含在本仓库里。
+### MCP Server（面向 AI Agent）
 
-两者的分工大致是：
+连接远程 MCP 服务器 `https://api.shuiyue.ai/mcp`，通过工具调用访问：
+
+| 工具 | 说明 |
+|------|------|
+| `search_hybrid` | 搜索自有语料库 + fashi.ai，跨源重排序 |
+| `fetch_local` | 按 source_path 获取自有语料库全文 |
+| `fetch_fashi` | 按 segment_id 获取 fashi.ai 文档 |
+
+```bash
+# Claude Code
+claude mcp add --transport http buddhist-texts https://api.shuiyue.ai/mcp
+```
+
+### REST API（面向任意客户端）
+
+如果你的环境不支持 MCP，可以直接调用 JSON 接口：
+
+| 端点 | 方法 | 说明 |
+|------|------|------|
+| `/api/v1/search` | POST | 搜索佛教教言语料 |
+| `/api/v1/local/{source_path}` | GET | 获取自有语料库全文 |
+| `/api/v1/fashi/{segment_id}` | GET | 获取 fashi.ai 文档 |
+
+**Base URL:** `https://api.shuiyue.ai`
+
+无需认证。完整接口文档见 [`skills/madhyamaka/references/public-api.md`](./skills/madhyamaka/references/public-api.md)。
+
+### 两者如何配合
+
+两者的分工：
 
 - 本仓库提供 skill 行为、主题地图、正确性锚点，以及整理后的知识索引
-- MCP 工具在未来落地后，负责面向原始文献与相关语料的直接检索
-
-这样的组合很重要。单有 skill，agent 可以获得比较清晰的概念框架；再配合原文检索，agent 才更有能力回到原始教法、查找依据，并给出更扎实的回答。
+- 原文检索服务负责面向原始文献与相关语料的直接检索
 
 换句话说：
 
-- skill 帮助 agent 理解“这是什么、应该怎么把握”
-- MCP 帮助 agent 找到“原文在哪里、依据是什么”
+- skill 帮助 agent 理解”这是什么、应该怎么把握”
+- 检索服务帮助 agent 找到”原文在哪里、依据是什么”
 - 两者配合，才能让佛法问答更完整，也更忠实于原始内容
 
 ## 当前范围
