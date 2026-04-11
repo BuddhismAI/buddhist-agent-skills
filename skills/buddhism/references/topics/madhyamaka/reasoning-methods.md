@@ -1,3 +1,10 @@
+---
+title: 中观能破正理
+topic: madhyamaka
+type: cross-collection synthesis
+topics: [五大因, 四大应成因, 金刚屑因, 离一多因, 破有无生因, 大缘起因, 心的本性观察]
+---
+
 # 能破正理 (Madhyamaka Reasoning Methods)
 
 When answering questions about 中观正理, 五大因, 四大应成因, or specific reasoning methods, use this file as the PRIMARY reference. For fully worked examples and per-品 traces, drill down into per-collection docs.

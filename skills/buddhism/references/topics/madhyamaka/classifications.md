@@ -1,3 +1,10 @@
+---
+title: 中观分类体系
+topic: madhyamaka
+type: cross-collection synthesis
+topics: [中观分类, 自空他空, 应成派, 自续派, 经部行, 瑜伽行, 二谛分判, 宗派阶梯]
+---
+
 # 中观分类 (Madhyamaka Classification Systems)
 
 When answering questions about 中观分类, 自空他空, 应成派自续派, 经部行瑜伽行, 二谛分判, or 各宗派阶梯, use this file as the PRIMARY reference. For detailed arguments, drill down into per-collection docs.

@@ -3,8 +3,8 @@
 | Collection | Primary Topic | Related Topics | Status | Docs | Lessons |
 |-----------|--------------|----------------|--------|------|---------|
 | 中论 | madhyamaka | -- | Complete | 37 | 114 |
-| 中观庄严论 | madhyamaka | -- | Complete | 34 | 128 |
-| 中观四百论 | madhyamaka | -- | Complete | 19 | -- |
+| 中观庄严论 | madhyamaka | yogachara | Complete | 34 | 128 |
+| 中观四百论 | madhyamaka | foundations | Complete | 19 | -- |
 | 解义慧剑 | madhyamaka | pramana | Complete | 7 | 12 |
 
 ## Collection Paths

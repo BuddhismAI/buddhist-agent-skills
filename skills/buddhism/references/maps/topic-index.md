@@ -17,7 +17,7 @@
 
 These will be created only when dedicated collections with sufficient depth are processed:
 
-- **yogachara (唯识)** -- consciousness-only, 8 consciousnesses, Asanga, Vasubandhu. Currently referenced only through the madhyamaka lens (中观庄严论 chapters on 破唯识).
+- **yogachara (唯识)** -- consciousness-only, 8 consciousnesses, Asanga, Vasubandhu. Substantial cross-reference material already exists in 中观庄严论 (二理车轨, 阿赖耶辩论, 破唯识, 术语与概念 ~50 yogachara entries), but viewed through the madhyamaka lens. Separate topic when dedicated yogachara texts are processed.
 - **tathagatagarbha (如来藏)** -- buddha-nature, Uttaratantra, other-emptiness connections.
 
 ## Topic Criteria

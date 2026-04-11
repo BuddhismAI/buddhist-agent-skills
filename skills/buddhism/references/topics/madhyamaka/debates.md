@@ -1,3 +1,10 @@
+---
+title: 中观核心辩论
+topic: madhyamaka
+type: cross-collection synthesis
+topics: [遮破显现, 无承认, 应成自续差别, 单空, 离戏, 空性与因果, 二无我]
+---
+
 # 中观重要辩论 (Key Debates in Madhyamaka)
 
 When answering questions about 应成派是否遮破显现, 无承认, 自续派与应成派差别, 单空vs离戏, 空性与因果, or 抉择二无我, use this file as the PRIMARY reference. Content is drawn from《中观总义》《抉择二无我》and consolidated from both per-collection wikis.

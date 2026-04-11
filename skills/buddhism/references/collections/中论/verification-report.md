@@ -1,6 +1,6 @@
 ---
 title: 中论知识文档·质量验证报告
-collection: 中论讲解
+collection: 中论
 type: verification_report
 date: 2026-04-05
 scope: 全部27品 + 序 + 末义（首次全量审核）

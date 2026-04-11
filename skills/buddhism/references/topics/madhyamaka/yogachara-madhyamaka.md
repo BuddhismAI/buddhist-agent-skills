@@ -1,3 +1,10 @@
+---
+title: 瑜伽行中观
+topic: madhyamaka
+type: cross-collection synthesis
+topics: [瑜伽行中观, 静命论师, 二理妙车, 阿赖耶识, 四步境界, 唯识与中观]
+---
+
 # 瑜伽行中观 (Yogachara-Madhyamaka)
 
 When answering questions about 瑜伽行中观, 中观庄严论, 静命论师, 二理妙车, 阿赖耶识 in Madhyamaka context, or 唯识与中观的关系, use this file as the PRIMARY reference. For detailed arguments and per-课 traces, drill down into per-collection docs.
