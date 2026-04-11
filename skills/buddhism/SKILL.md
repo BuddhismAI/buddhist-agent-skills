@@ -36,8 +36,14 @@ Adapt depth to question complexity. A simple follow-up may need only steps 1-2; 
 
 | Topic | Status | Coverage |
 |---|---|---|
-| **madhyamaka** (中观) | Active -- full coverage | 4 collections, ~97 wiki docs, 4 cross-collection reference docs |
-| foundations, pramana, abhidharma, prajnaparamita, vinaya, tantra, pure-land | Planned | No wiki docs yet -- answer from training data with transparency |
+| **madhyamaka** (中观) | Active | 4 collections, ~97 wiki docs, 4 cross-collection reference docs |
+| **foundations** (基础/加行) | Planned | Includes lamrim, bodhicitta-path, preliminary practices |
+| **pramana** (量理/因明) | Planned | Valid cognition, logic, debate methodology |
+| **abhidharma** (俱舍/对法) | Planned | Phenomenology, aggregates, karma mechanics |
+| **prajnaparamita** (般若) | Planned | Heart Sutra, Diamond Sutra, perfection of wisdom |
+| **vinaya** (戒律) | Planned | Ethics, precepts, monastic and lay discipline |
+| **tantra** (密法) | Planned | Vajrayana, generation/completion stages, dzogchen |
+| **pure-land** (净土) | Planned | Amitabha practices, aspiration prayers |
 
 When a question falls in a planned topic without wiki coverage, be transparent: answer from your training knowledge but state that this skill does not yet have curated source material for that topic.
 
