@@ -65,12 +65,15 @@ See `references/maps/topic-index.md` for available topics and `references/maps/c
 
 For every question, follow this flow:
 
-1. **Read the relevant reference file(s)** -- use the topic's concept router. These give you the intellectual framework.
-2. **Write a quick answer** from the wiki framework. Mark where citations are needed.
-3. **Do targeted corpus search** for `ref:` citations grounding specific claims.
-4. **Edit the answer** to add citations and evidence.
+1. **Find the right reference file** -- use the topic's concept router for known concepts, or search `skill_refs` for natural-language lookup: `POST /api/v1/search { sources: ["skill_refs"], query: "..." }`. This returns file + section pointers into the wiki.
+2. **Read the reference file** -- locally or via fetch endpoint. These give you the intellectual framework.
+3. **Write a quick answer** from the wiki framework. Mark where citations are needed.
+4. **Do targeted corpus search** (`local`/`fashi`) for `ref:` citations grounding specific claims.
+5. **Edit the answer** to add citations and evidence.
 
 The wiki gives you enough to write a good initial answer immediately. Don't wait for corpus search to start writing.
+
+**Fallback:** If `skill_refs` search is unavailable, fall back to the topic's Concept Router + Grep. If corpus search is also unavailable, answer from the wiki alone but tell the user you could not verify against the original source.
 
 ### Search tool selection
 
@@ -84,7 +87,10 @@ The wiki gives you enough to write a good initial answer immediately. Don't wait
 ### Source access paths
 
 1. **MCP tools** (`search_hybrid`, `fetch_local`, `fetch_fashi`) -- if connected
-2. **Public REST API** at `https://api.shuiyue.ai/api/v1` -- see `references/public-api.md` for endpoints
+2. **Public REST API** at `https://api.shuiyue.ai/api/v1` -- see `references/public-api.md` for endpoints. Three source types:
+   - `skill_refs` -- semantic search over skill reference files (finds the right wiki doc)
+   - `local` -- search teaching corpus extractions (for citable evidence)
+   - `fashi` -- search fashi.ai corpus
 3. **Wiki-only** -- if neither MCP nor HTTP is available, answer from compiled wiki but explicitly tell the user you could not verify against the original source. Still name the main relevant texts or collection docs.
 
 ### Reading search results
