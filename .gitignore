@@ -7,3 +7,6 @@ sources/
 .claude/
 .pi/
 skills-lock.json
+
+# Wiki build output
+site/
