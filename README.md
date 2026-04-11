@@ -6,7 +6,7 @@ Open-source Buddhist AI skills for Madhyamaka, emptiness, Nagarjuna, and source-
 
 ## Supported Agents
 
-This repository is built around the shared Agent Skills format, so the same `skills/madhyamaka/SKILL.md` can be installed into many coding agents, not just Codex/OpenAI.
+This repository is built around the shared Agent Skills format, so the same `skills/buddhism/SKILL.md` can be installed into many coding agents, not just Codex/OpenAI.
 
 Common targets include:
 
@@ -19,17 +19,17 @@ Common targets include:
 
 ## Install With `npx skills add`
 
-The easiest cross-agent path is `npx skills add`, which installs the `madhyamaka` skill from GitHub into whichever compatible agent you choose.
+The easiest cross-agent path is `npx skills add`, which installs the `buddhism` skill from GitHub into whichever compatible agent you choose.
 
 ```bash
 # Install for the current project
-npx skills add BuddhismAI/buddhist-agent-skills --skill madhyamaka -y
+npx skills add BuddhismAI/buddhist-agent-skills --skill buddhism -y
 
 # Install globally
-npx skills add BuddhismAI/buddhist-agent-skills --skill madhyamaka -g -y
+npx skills add BuddhismAI/buddhist-agent-skills --skill buddhism -g -y
 ```
 
-The install works because the repo exposes a valid skill at `skills/madhyamaka/SKILL.md`.
+The install works because the repo exposes a valid skill at `skills/buddhism/SKILL.md`.
 
 ## Claude Code Marketplace
 
@@ -37,15 +37,15 @@ For Claude Code's native plugin marketplace flow, this repo also includes a mark
 
 ```bash
 claude plugin marketplace add BuddhismAI/buddhist-agent-skills
-claude plugin install madhyamaka
+claude plugin install buddhism
 ```
 
 ## Agent Metadata
 
 Different agents can read different optional metadata layers:
 
-- [`skills/madhyamaka/SKILL.md`](./skills/madhyamaka/SKILL.md) is the portable, cross-agent source of truth
-- [`skills/madhyamaka/agents/openai.yaml`](./skills/madhyamaka/agents/openai.yaml) improves UI presentation for compatible OpenAI/Codex surfaces
+- [`skills/buddhism/SKILL.md`](./skills/buddhism/SKILL.md) is the portable, cross-agent source of truth
+- [`skills/buddhism/agents/openai.yaml`](./skills/buddhism/agents/openai.yaml) improves UI presentation for compatible OpenAI/Codex surfaces
 - [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) enables Claude Code marketplace discovery/install
 
 ## Releasing
@@ -62,7 +62,7 @@ Recommended workflow:
 Notes:
 
 - `skills-lock.json` is consumer-side install state, not publisher-side release metadata.
-- Keep the skill path and name stable when possible; renaming `skills/madhyamaka/` is the main breaking change.
+- Keep the skill path and name stable when possible; renaming `skills/buddhism/` is the main breaking change.
 - Add explicit manifest version fields later only if a specific marketplace requires them.
 
 ## Purpose
@@ -163,7 +163,7 @@ No setup needed — the skill automatically teaches agents to call these endpoin
 
 **Base URL:** `https://api.shuiyue.ai`
 
-No authentication required. See [`skills/madhyamaka/references/public-api.md`](./skills/madhyamaka/references/public-api.md) for full endpoint documentation.
+No authentication required. See [`skills/buddhism/references/public-api.md`](./skills/buddhism/references/public-api.md) for full endpoint documentation.
 
 ### How they work together
 
@@ -180,33 +180,28 @@ In other words:
 
 ## Current Scope
 
-Initial focus:
+`skills/buddhism/` is a unified skill package with per-topic depth. Currently:
 
-- `skills/madhyamaka/` - Madhyamaka skill and topic wiki
+- **madhyamaka** (中观) -- full coverage: 4 collections, ~97 wiki docs
+- **7 more topics planned** (pramana, foundations, abhidharma, prajnaparamita, vinaya, tantra, pure-land) -- created as collections are processed
 
-Planned future candidates:
-
-- `skills/yogachara/`
-- `skills/pramana/`
-- `skills/lamrim/`
-- `skills/buddhism/` - thin overview and routing skill across topics
+See `skills/buddhism/references/maps/topic-index.md` for the full topic inventory.
 
 ## Repository Structure
 
-Each topic skill is the canonical home for:
+```
+skills/buddhism/
+  SKILL.md                              # Unified behavior and routing
+  agents/openai.yaml                    # Agent UI metadata
+  references/
+    topics/<topic>/index.md             # Per-topic concept maps, correctness anchors
+    topics/<topic>/*.md                 # Cross-collection synthesis docs
+    collections/<collection>/           # Per-collection wiki docs
+    maps/                               # Topic and collection indexes
+    public-api.md                       # REST API documentation
+```
 
-- `SKILL.md` - behavior, routing, and answering guidance
-- `agents/*.yaml` - optional agent-specific UI metadata
-- `references/` - compiled wiki pages
-
-At repository level, optional packaging files such as `.claude-plugin/marketplace.json` can expose the same skills through agent-native marketplaces.
-
-These files often include indexes and structured reference material that become much more powerful when paired with source retrieval tooling.
-
-Within a topic skill:
-
-- `references/*.md` holds cross-collection synthesis
-- `references/collections/*` holds per-collection wikis
+At repository level, `.claude-plugin/marketplace.json` exposes the skill through agent-native marketplaces.
 
 ## How These Skills Are Built
 

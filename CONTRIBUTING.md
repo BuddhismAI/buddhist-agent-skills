@@ -4,9 +4,7 @@ Thanks for contributing to `buddhist-agent-skills`.
 
 ## Principles
 
-- Keep each skill focused on a doctrinal or practice topic.
-- Prefer topic skills with multiple collections over one monolithic Buddhism skill.
-- Keep cross-collection synthesis in `references/*.md`.
+- The Buddhism skill uses per-topic index docs for depth within a unified package. Add topic-specific content to `references/topics/<topic>/index.md` and cross-collection synthesis to `references/topics/<topic>/*.md`.
 - Keep per-collection analysis in `references/collections/*`.
 - Keep installable metadata aligned with `SKILL.md` when present, including files such as `agents/openai.yaml` and `.claude-plugin/marketplace.json`.
 - Preserve provenance so claims can be traced back to source texts or collection docs.
