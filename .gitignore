@@ -10,3 +10,10 @@ skills-lock.json
 
 # Wiki build output
 site/
+
+# Pipeline artifacts
+**/log.md
+**/verification-report.md
+
+# Temporarily hidden topics
+skills/buddhism/references/topics/tantra/

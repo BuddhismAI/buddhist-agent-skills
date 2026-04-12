@@ -42,7 +42,7 @@ Adapt depth to question complexity. A simple follow-up may need only steps 1-2; 
 | **abhidharma** (俱舍/对法) | Planned | Phenomenology, aggregates, karma mechanics |
 | **prajnaparamita** (般若) | Planned | Heart Sutra, Diamond Sutra, perfection of wisdom |
 | **vinaya** (戒律) | Planned | Ethics, precepts, monastic and lay discipline |
-| **tantra** (密法) | Planned | Vajrayana, generation/completion stages, dzogchen |
+| **tantra** (密法) | Planned (hidden) | Seed notes collected; topic temporarily hidden from index |
 | **pure-land** (净土) | Planned | Amitabha practices, aspiration prayers |
 
 When a question falls in a planned topic without wiki coverage, be transparent: answer from your training knowledge but state that this skill does not yet have curated source material for that topic.
