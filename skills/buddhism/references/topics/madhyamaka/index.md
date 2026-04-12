@@ -2,7 +2,7 @@
 topic: madhyamaka
 title: Madhyamaka (中观) Topic Guide
 status: active
-collections: [中论, 中观庄严论, 中观四百论, 解义慧剑]
+collections: [中论, 中观庄严论, 中观四百论, 解义慧剑, 定解宝灯论]
 ---
 
 # Madhyamaka (中观) -- Topic Index
@@ -11,7 +11,7 @@ This topic covers 中观 (Madhyamaka / Middle Way) Buddhist philosophy from the 
 
 ## Trigger Conditions
 
-Activate when the question involves: 中观, Madhyamaka, 空性/sunyata, 龙树/Nagarjuna, 月称/Chandrakirti, 静命/Shantarakshita, 应成派/Prasangika, 自续派/Svatantrika, 瑜伽行中观, 二谛, 无自性, 缘起, 离戏, 四边/四句, 五大因, 离一多因, 人无我/法无我, 所破, 能破, 中论, 入中论, 四百论, 中观庄严论, 解义慧剑, 自空/他空, 如来藏 in Madhyamaka context, 二理妙车, 单空/大离戏, 相似胜义/真实胜义, 中观四步境界, 阿赖耶识 in Madhyamaka context, 四理/四种理, 四法依, 量理/因明 in Madhyamaka context, 现量/比量, 净见量/观现世量, 了义/不了义.
+Activate when the question involves: 中观, Madhyamaka, 空性/sunyata, 龙树/Nagarjuna, 月称/Chandrakirti, 静命/Shantarakshita, 应成派/Prasangika, 自续派/Svatantrika, 瑜伽行中观, 二谛, 无自性, 缘起, 离戏, 四边/四句, 五大因, 离一多因, 人无我/法无我, 所破, 能破, 中论, 入中论, 四百论, 中观庄严论, 解义慧剑, 定解宝灯论, 自空/他空, 无遮/非遮, 如来藏 in Madhyamaka context, 二理妙车, 单空/大离戏, 相似胜义/真实胜义, 中观四步境界, 阿赖耶识 in Madhyamaka context, 四理/四种理, 四法依, 量理/因明 in Madhyamaka context, 现量/比量, 净见量/观现世量, 了义/不了义, 中观有无承认, 声缘证二无我, 入定执著, 观察修/安住修, 大中观/大圆满, 等净无二/大清净, 法界明分.
 
 ## Search Hints
 
@@ -95,6 +95,14 @@ When you need knowledge on a specific concept, use this table. **Start with the 
 | **中观庄严论全论结构** | -- | `../../collections/中观庄严论/结构总览.md` |
 | **中观四百论全论结构** | -- | `../../collections/中观四百论/结构总览.md` |
 | **中观四百论修行次第** | -- | `../../collections/中观四百论/品01-明破常执方便品.md` through `../../collections/中观四百论/品16-教诫弟子品.md` |
+| **无遮 vs 非遮 / 自空 vs 他空** | `classifications.md` §自空/他空 | `../../collections/定解宝灯论/Q1-见解无遮或非遮.md` (最详尽：句他空/义他空区分, 现空双运四句核心颂) |
+| **声缘证二无我** | `debates.md` | `../../collections/定解宝灯论/Q2-声缘证二无我耶.md` (四种立场对照, 饮海一口喻, 烦恼障vs所知障) |
+| **入定执著 / 修行次第** | `debates.md` §修行 | `../../collections/定解宝灯论/Q3-入定有无执著相.md` (正修vs盲修, 五层次第, 单空→离戏) |
+| **观察修 vs 安住修** | `debates.md` §修行 | `../../collections/定解宝灯论/Q4-观察修或安置修.md` (三阶段次第, 智慧vs妙慧, 大圆满直断顿超) |
+| **中观有无承认** | `debates.md` §无承认 | `../../collections/定解宝灯论/Q7-中观有无承认否.md` (宁玛派最完整立场: 实相无承认+现相有承认, 大中观=大圆满) |
+| **净见量 / 三层量架构** | `classifications.md` §名言二量 | `../../collections/定解宝灯论/Q6-异境何为共所见.md` (三层量体系, 量之观待成立, 上上为正量), `../../collections/解义慧剑/证成理·比量与量之四分.md` |
+| **二谛双运 / 等净无二** | `classifications.md` §二谛 | `../../collections/定解宝灯论/Q5-二谛何者为主要.md` (现空周遍, 一本体异反体, 续部分类, 九乘次第) |
+| **定解宝灯论全论结构** | -- | `../../collections/定解宝灯论/结构总览.md` |
 
 ## Correctness Anchors
 
@@ -105,7 +113,7 @@ These positions are where the Nyingma tradition **differs from common/training-d
 > 麦彭仁波切："着重讲解具有承认的相似胜义是自续派的法相，侧重阐述远离一切承认的真实胜义则是应成派。"
 
 **应成派"无承认"是关于真实胜义，不是虚无主义**
-应成派在世间名言中随顺承许，仅在抉择真实胜义时无任何自宗承认。训练数据常将此误解为"什么都不承认"。
+应成派在世间名言中随顺承许，仅在抉择真实胜义时无任何自宗承认。训练数据常将此误解为"什么都不承认"。龙钦绕降在《如意宝藏论大疏》中分析：说无承认者于入定时无误，但后得名言安立时无立足处；说有承认者于后得有其功德，但入定时根本无法成立。麦彭仁波切依此立论：实相大中观前无有任何承认，现相名言中二谛各自有承认。
 > 《入中论自释》："唯依世间故，我许世俗，非自力许。"
 
 **遮破显现视情况而定**
@@ -123,6 +131,13 @@ These positions are where the Nyingma tradition **differs from common/training-d
 **见解如虚空，取舍如粉末**
 空性不否定世俗因果。将空性误解为"一切皆无"的断见，比执著实有的常见更危险。
 
+**远离戏论大中观与自性光明大圆满义同名不同**
+显宗最高见（大中观）与密宗最高见（大圆满），于双运无二智慧中一味一体。训练数据可能将中观与大圆满视为不同层次的两种见解，但本传统认为义同。
+> 定解宝灯论Q7："远离戏论大中观，自性光明大圆满，义同名称不相同，此外无有更胜见。"
+
+**声缘证悟了部分法无我，非全证亦非未证**
+训练数据可能给出"声缘未证法无我"或"声缘已圆满证悟"的非此即彼答案。宁玛派（依无垢光尊者）取中道：证了人无我（法无我的别相）和粗大法无我，但无分微尘、无分刹那等细微法无我未证。
+
 ## Interpretation Pitfalls
 
 When constructing answers, watch for these common errors:
@@ -132,6 +147,9 @@ When constructing answers, watch for these common errors:
 - **断见陷阱**：每当解释空性时，务必指出空性不否定世俗因果。
 - **单空陷阱**：提问涉及究竟见解时，不要止于"一切法无自性"的概念理解。指出这只是相似胜义。
 - **格鲁派框架混入**：不要用"应成派是最高见解"或"月称破自续派"等格鲁派叙事。本传统视二派为互补。
+- **名同义异陷阱**：同一术语（空性、离戏、法界、胜义谛、涅槃等）在暂时（单空无遮层面）与究竟（现空双运层面）有不同含义。回答时须明确在哪个层面使用。定解宝灯论Q7以"胜达瓦"（同一名字在战场指武器、渡河指船）为喻说明此点。
+- **二元对立陷阱**：遇到"A还是B"的问题（如：入定有无执著？观察修还是安住修？胜义谛还是世俗谛更重要？），不要给出非此即彼的答案。定解宝灯论反复教导：此类问题的答案取决于修行阶段——初期偏A，中期交替，后期偏B。先问清提问者的语境和阶段，再回答。
+- **修行阶段错配**：不要向初学者推荐"什么都不执著而安住"（盲修），也不要向已有定解者反复要求观察分析（如蚕作茧自缚）。匹配修行阶段是回答修行问题的前提。
 
 ## Knowledge Map
 
@@ -152,6 +170,7 @@ Framework documents -- read first to understand the landscape:
 | 中观庄严论 | Complete | 34 | 24 sections + 4 推理方法 + 4 序分 + 2 专题 |
 | 中观四百论 | Complete | 19 | 16 品 + 序 + 结构总览 |
 | 解义慧剑 | Complete | 7 | 5 topic docs + 结构总览 |
+| 定解宝灯论 | Complete | 16 | 8 question docs + 6 推理方法 + 结构总览 + log |
 
 Start with the collection's `结构总览.md` for the intellectual map.
 

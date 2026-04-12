@@ -12,6 +12,7 @@ When answering questions about 中观正理, 五大因, 四大应成因, or spec
 Per-collection drill-down:
 - `../../collections/中论/推理方法/` — 7 docs covering 四边破, 互相观待而破, 观察三时而破, 观察一体异体而破, 有无生因, 五相推理, 回遮论证
 - `../../collections/中观庄严论/推理方法/` — 4 docs covering 离一多因, 应成因与自续因, 名言量与胜义量, 现基递进破除
+- `../../collections/定解宝灯论/推理方法/` — 6 docs covering 渐次次第论, 一体异体推理, 太过归谬法, 总别推理, 量之观待论证, 四边归摄法。这些是定解宝灯论特有的辩论推理模式，侧重于如何运用中观正理解决宗派争议，与中论/中观庄严论的推理方法互补
 
 ---
 
