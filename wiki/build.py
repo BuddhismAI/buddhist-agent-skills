@@ -20,7 +20,7 @@ SITE = ROOT / "site"
 WIKI = ROOT / "wiki"
 
 EXCLUDE = {"log.md", "verification-report.md", "public-api.md"}
-COLLECTIONS = ["中论", "中观庄严论", "中观四百论", "解义慧剑"]
+COLLECTIONS = ["中论", "中观庄严论", "中观四百论", "解义慧剑", "定解宝灯论"]
 
 
 # -- Parsing -----------------------------------------------------------------
