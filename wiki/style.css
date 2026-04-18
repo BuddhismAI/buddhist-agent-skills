@@ -221,6 +221,24 @@ a:hover { text-decoration: underline; }
   color: var(--text-heading);
   margin-top: 0.3rem;
 }
+.sb-toggle {
+  cursor: pointer;
+  position: relative;
+  padding-right: 2rem;
+}
+.sb-toggle::after {
+  content: "▸";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  transition: transform 0.15s;
+}
+.sb-toggle.sb-expanded::after {
+  transform: translateY(-50%) rotate(90deg);
+}
 .sb-coll-title a { color: var(--text-heading); }
 .sb-coll-title a:visited { color: var(--text-heading); }
 .sb-coll-title a.active { color: var(--active-border); }

@@ -45,6 +45,18 @@
   </footer>
 
   <script>
+  // Sidebar toggle
+  document.querySelectorAll('.sb-toggle').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') return; // let links navigate
+      var list = this.nextElementSibling;
+      if (!list || !list.classList.contains('sb-collapsible')) return;
+      var hidden = list.style.display === 'none';
+      list.style.display = hidden ? '' : 'none';
+      this.classList.toggle('sb-expanded', hidden);
+    });
+  });
+
   // Search
   (function(){
     const root = '{{ROOT}}';

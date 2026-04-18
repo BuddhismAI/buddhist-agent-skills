@@ -34,24 +34,45 @@ Adapt depth to question complexity. A simple follow-up may need only steps 1-2; 
 
 ## 3. Scope and Limitations
 
-| Topic | Status | Coverage |
-|---|---|---|
-| **madhyamaka** (中观) | Active | 4 collections, ~97 wiki docs, 4 cross-collection reference docs |
-| **foundations** (基础/加行) | Planned | Includes lamrim, bodhicitta-path, preliminary practices |
-| **pramana** (量理/因明) | Planned | Valid cognition, logic, debate methodology |
-| **abhidharma** (俱舍/对法) | Planned | Phenomenology, aggregates, karma mechanics |
-| **prajnaparamita** (般若) | Planned | Heart Sutra, Diamond Sutra, perfection of wisdom |
-| **vinaya** (戒律) | Planned | Ethics, precepts, monastic and lay discipline |
-| **tantra** (密法) | Planned (hidden) | Seed notes collected; topic temporarily hidden from index |
-| **pure-land** (净土) | Planned | Amitabha practices, aspiration prayers |
+| Topic | Status | Coverage | Routing keywords |
+|---|---|---|---|
+| **madhyamaka** (中观) | Active | 5 collections, ~97 wiki docs, topic index + 4 cross-collection docs | 空性, 中观, 二谛, 缘起, 龙树, 月称, 静命, 应成/自续, 离戏, 四边, 五大因, 离一多因, 所破/能破, 中论, 入中论, 四百论, 中观庄严论, 解义慧剑, 定解宝灯论 |
+| **foundations** (基础/加行) | Active | 2 collections (大圆满前行 17 docs, 入行论 7 docs), topic index + 3 synthesis docs (`practice-path.md`, `bodhicitta-methods.md`, `key-quotes.md`) | 前行, 加行, 道次第, 暇满, 无常, 轮回, 因果, 皈依, 菩提心, 四无量心, 六度, 金刚萨埵, 百字明, 曼茶罗, 上师瑜伽, 往生法, 出离心, 三殊胜, 大圆满前行, 入行论 |
+| **abhidharma** (俱舍/对法) | Active | 1 collection (俱舍论 14 docs), no topic index yet | 俱舍, 蕴界处, 五蕴, 十二处, 十八界, 六因五果, 心所法, 二十二根, 有漏无漏, 随眠, 圣道, 业道, 世间器情 |
+| **pramana** (量理/因明) | Seed | Seed doc from 定解宝灯论 at `topics/pramana/notes-from-定解宝灯论.md`; cross-ref material in madhyamaka collections | 因明, 量理, 现量, 比量, 法称, 陈那, 三相, 能立, 因三相 |
+| **tantra** (密法) | Seed | Seed doc from 定解宝灯论; substantial加行-perspective content in 大圆满前行 (金刚萨埵观想, 密宗皈依, 上师瑜伽, 往生法) | 密法, 密宗, 灌顶, 生起次第, 圆满次第, 大圆满, 金刚乘, 三昧耶 |
+| **prajnaparamita** (般若) | Planned | No coverage yet | 般若, 心经, 金刚经, 波罗蜜多 |
+| **vinaya** (戒律) | Planned | No coverage yet | 戒律, 别解脱, 菩萨戒, 比丘戒 |
+| **pure-land** (净土) | Planned | No coverage yet | 净土, 阿弥陀, 极乐, 往生 |
 
-When a question falls in a planned topic without wiki coverage, be transparent: answer from your training knowledge but state that this skill does not yet have curated source material for that topic.
+**Three-tier retrieval model** (for Active topics):
+
+```
+Tier 1: SKILL.md         → routing (which topic? always in context)
+Tier 2: topics/<topic>/   → orientation + framework (index.md for routing, synthesis docs for cross-collection knowledge)
+Tier 3: collections/*/    → depth (per-collection docs with full argument detail, verses, stories)
+Tier 4: source corpus     → grounding (searched for exact citations when needed)
+```
+
+Each tier adds depth without duplicating the tier above. Tier 2 references tier 3 for detail; tier 3 references tier 4 for grounding.
+
+**How the agent should handle each status:**
+- **Active**: Tier 1 (route) → Tier 2 (read topic index + relevant synthesis docs for framework) → Tier 3 (drill into collection docs for specifics) → Tier 4 (search corpus for citations if needed). Most questions can be answered at tier 2-3 without hitting tier 4.
+- **Seed**: Check seed docs (partial tier 2) for whatever content exists, then supplement with training knowledge. State the topic has partial coverage.
+- **Planned**: Answer from training knowledge. Be transparent that curated source material doesn't exist yet for this topic.
 
 ## 4. Topic Routing
 
 ### Identifying the topic
 
-Read the question's vocabulary and intent. Each topic has its own concept space. When only one topic has wiki content (currently madhyamaka), most Buddhist philosophy questions will route there. Use the topic's `index.md` for concept-level routing within the topic.
+Read the question's vocabulary and intent. Each topic has its own concept space. Use the **Routing keywords** column in the table above to match question vocabulary to topic. Use the topic's `index.md` (if it exists) for concept-level routing within the topic.
+
+Three topics currently have wiki content:
+- **madhyamaka** — 空性, 中观, 二谛, 龙树, 应成/自续, etc.
+- **foundations** — 前行, 加行, 暇满, 无常, 皈依, 菩提心, 六度, 金刚萨埵, 上师瑜伽, 往生法, etc.
+- **abhidharma** — 俱舍, 蕴界处, 六因五果, 心所法, 随眠, 圣道, etc.
+
+Two topics have seed content: **pramana** and **tantra**.
 
 ### Multi-topic questions
 

@@ -5,9 +5,9 @@
 | Topic | Scope | Status | Index Doc | Collections |
 |-------|-------|--------|-----------|-------------|
 | madhyamaka (中观) | Emptiness, two truths, Nagarjuna, Chandrakirti, Shantarakshita, Prasangika/Svatantrika | Active | `../topics/madhyamaka/index.md` | 中论, 中观庄严论, 中观四百论, 解义慧剑 |
-| foundations (基础/加行) | Four thoughts, refuge, bodhicitta, preliminary practices, lamrim/graduated path | Planned | -- | -- |
+| foundations (基础/加行) | Four thoughts, refuge, bodhicitta, preliminary practices, lamrim/graduated path, bodhisattva conduct | Active | `../topics/foundations/index.md` | 大圆满前行, 入行论 |
 | pramana (量理/因明) | Valid cognition, logic, Dharmakirti, Dignaga, debate methodology | Planned | -- | -- |
-| abhidharma (俱舍/对法) | Phenomenology, aggregates, elements, karma mechanics | Planned | -- | -- |
+| abhidharma (俱舍/对法) | Phenomenology, aggregates, elements, karma mechanics | Active | -- | 俱舍论 |
 | prajnaparamita (般若) | Heart Sutra, Diamond Sutra, perfection of wisdom literature | Planned | -- | -- |
 | vinaya (戒律) | Ethics, precepts, monastic and lay discipline | Planned | -- | -- |
 | tantra (密法) | Vajrayana, generation/completion stages, deity yoga, dzogchen | Planned | -- | -- |

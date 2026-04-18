@@ -103,6 +103,12 @@ When you need knowledge on a specific concept, use this table. **Start with the 
 | **净见量 / 三层量架构** | `classifications.md` §名言二量 | `../../collections/定解宝灯论/Q6-异境何为共所见.md` (三层量体系, 量之观待成立, 上上为正量), `../../collections/解义慧剑/证成理·比量与量之四分.md` |
 | **二谛双运 / 等净无二** | `classifications.md` §二谛 | `../../collections/定解宝灯论/Q5-二谛何者为主要.md` (现空周遍, 一本体异反体, 续部分类, 九乘次第) |
 | **定解宝灯论全论结构** | -- | `../../collections/定解宝灯论/结构总览.md` |
+| **见行平衡 (见解vs行为)** | -- | `../../collections/大圆满前行/因果不虚·业之自性.md` §见行平衡 (莲花生大士黄金法则："见比虚空高，取舍因果较粉细"——对中观修行者极为重要) |
+| **空性八幻喻 / 悲智双运** | -- | `../../collections/大圆满前行/发殊胜菩提心·行菩提心六度.md` §智慧度 (从修行实践角度讲空性。萨日哈道歌："离悲空性见，非获殊胜道") |
+| **唯识vs中观辩论 / 破自证** | -- | `../../collections/入行论/品09-二谛安立与遣除争论.md` (入行论独有的详尽辩论结构：破自证·刀剑喻/灯火喻/蓝色喻、破显现即心、破境心非二、破迷基不成。比中观庄严论的破唯识更完整) |
+| **如幻修道 / 空性习气** | `debates.md` §修行 | `../../collections/入行论/品09-世俗如幻与胜义空性修道.md` (幻师喻、"无缘最寂灭"、大乘成立佛说辩论、修胜义功德："悲智住轮回") |
+| **四念住 / 法无我** | -- | `../../collections/入行论/品09-深入法无我·四念住.md` (以身/受/心/法四念住为框架系统破法我执。微尘方分析、三时分析五根识、"有情性涅槃") |
+| **破常因生 (大自在/微尘/主物)** | `reasoning-methods.md` | `../../collections/入行论/品09-破除实执与智慧所得.md` (入行论角度的金刚屑因+破有无生因，品终以悲心收束空性) |
 
 ## Correctness Anchors
 
@@ -171,6 +177,7 @@ Framework documents -- read first to understand the landscape:
 | 中观四百论 | Complete | 19 | 16 品 + 序 + 结构总览 |
 | 解义慧剑 | Complete | 7 | 5 topic docs + 结构总览 |
 | 定解宝灯论 | Complete | 16 | 8 question docs + 6 推理方法 + 结构总览 + log |
+| 入行论·品09 | Complete | 5 | 二谛+唯识辩论, 如幻修道+大乘成立佛说, 人无我, 法无我·四念住, 破实执+品终悲心 |
 
 Start with the collection's `结构总览.md` for the intellectual map.
 

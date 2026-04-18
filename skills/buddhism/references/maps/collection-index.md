@@ -7,6 +7,9 @@
 | 中观四百论 | madhyamaka | foundations | Complete | 19 | -- |
 | 解义慧剑 | madhyamaka | pramana | Complete | 7 | 12 |
 | 定解宝灯论 | madhyamaka | pramana, tantra | Complete | 16 | 28+9 |
+| 俱舍论 | abhidharma | pramana, foundations, vinaya | Complete | 14 | 160 |
+| 大圆满前行 | foundations | tantra | Complete | 17 | 144 |
+| 入行论 | foundations | madhyamaka, pramana | Complete | 29 | 201 |
 
 ## Collection Paths
 

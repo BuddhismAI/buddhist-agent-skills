@@ -20,7 +20,7 @@ SITE = ROOT / "site"
 WIKI = ROOT / "wiki"
 
 EXCLUDE = {"log.md", "verification-report.md", "public-api.md"}
-COLLECTIONS = ["中论", "中观庄严论", "中观四百论", "解义慧剑", "定解宝灯论"]
+COLLECTIONS = ["中论", "中观庄严论", "中观四百论", "解义慧剑", "定解宝灯论", "俱舍论", "大圆满前行", "入行论"]
 
 
 # -- Parsing -----------------------------------------------------------------
@@ -188,13 +188,14 @@ def sidebar(page, colls, topic_pgs):
     lines.append(f'<div class="sb-home"><a href="{r}index.html"{cls}>首页</a></div>')
 
     # Topics section
-    lines.append(f'<div class="sb-section-title">中观专题</div>')
-    if in_topics:
-        lines.append('<ul class="sb-pages">')
-        for tp in topic_pgs:
-            cls = ' class="active"' if tp is page else ""
-            lines.append(f'  <li{cls}><a href="{r}{tp.out}">{tp.label}</a></li>')
-        lines.append("</ul>")
+    expanded_cls = " sb-expanded" if in_topics else ""
+    lines.append(f'<div class="sb-section-title sb-toggle{expanded_cls}">中观专题</div>')
+    hidden = "" if in_topics else ' style="display:none"'
+    lines.append(f'<ul class="sb-pages sb-collapsible"{hidden}>')
+    for tp in topic_pgs:
+        cls = ' class="active"' if tp is page else ""
+        lines.append(f'  <li{cls}><a href="{r}{tp.out}">{tp.label}</a></li>')
+    lines.append("</ul>")
 
     # Each collection
     for cname in COLLECTIONS:
@@ -202,23 +203,24 @@ def sidebar(page, colls, topic_pgs):
         ov = coll["overview"]
         expanded = (current_coll == cname)
 
+        expanded_cls = " sb-expanded" if expanded else ""
         if ov:
             cls = ' class="active"' if ov is page else ""
-            lines.append(f'<div class="sb-coll-title{"" if not expanded else " sb-expanded"}"><a href="{r}{ov.out}"{cls}>{cname}</a></div>')
+            lines.append(f'<div class="sb-coll-title sb-toggle{expanded_cls}"><a href="{r}{ov.out}"{cls}>{cname}</a></div>')
         else:
-            lines.append(f'<div class="sb-coll-title">{cname}</div>')
+            lines.append(f'<div class="sb-coll-title sb-toggle{expanded_cls}">{cname}</div>')
 
-        if expanded:
-            lines.append('<ul class="sb-pages">')
-            for pg in all_coll_pages(coll):
-                if pg is ov:
-                    continue
-                cls = ' class="active"' if pg is page else ""
-                indent = "sb-indent " if pg.is_reasoning else ""
-                if pg.is_reasoning and pg is coll["reasoning"][0]:
-                    lines.append(f'  <li class="sb-sub-title">推理方法</li>')
-                lines.append(f'  <li{cls}><a class="{indent}" href="{r}{pg.out}">{pg.label}</a></li>')
-            lines.append("</ul>")
+        hidden = "" if expanded else ' style="display:none"'
+        lines.append(f'<ul class="sb-pages sb-collapsible"{hidden}>')
+        for pg in all_coll_pages(coll):
+            if pg is ov:
+                continue
+            cls = ' class="active"' if pg is page else ""
+            indent = "sb-indent " if pg.is_reasoning else ""
+            if pg.is_reasoning and pg is coll["reasoning"][0]:
+                lines.append(f'  <li class="sb-sub-title">推理方法</li>')
+            lines.append(f'  <li{cls}><a class="{indent}" href="{r}{pg.out}">{pg.label}</a></li>')
+        lines.append("</ul>")
 
     return "\n".join(lines)
 
