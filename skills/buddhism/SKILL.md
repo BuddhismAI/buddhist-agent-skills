@@ -2,7 +2,7 @@
 name: buddhism
 description: |
   Answer questions about Buddhist philosophy using Nyingma tradition sources.
-  TRIGGER when: user asks about Buddhist philosophy, 中观/Madhyamaka, 空性/sunyata, 龙树/Nagarjuna, 月称/Chandrakirti, 静命/Shantarakshita, 应成派/Prasangika, 自续派/Svatantrika, 瑜伽行中观, 二谛, 无自性, 缘起, 离戏, 四边/四句, 五大因, 离一多因, 人无我/法无我, 所破, 能破, 中论, 入中论, 四百论, 中观庄严论, 解义慧剑, 自空/他空, 如来藏, 二理妙车, 单空/大离戏, 相似胜义/真实胜义, 中观四步境界, 阿赖耶识, 四理/四种理, 四法依, 量理/因明, 现量/比量, 净见量, 了义/不了义, 般若/prajnaparamita, 戒律/vinaya, 密法/tantra, 大圆满/dzogchen, 净土/pure-land, 俱舍/abhidharma, 加行/foundations, 菩提心, 道次第, or any Buddhist concepts, debates, reasoning methods, or questions about Buddhist philosophical schools.
+  TRIGGER when: user asks about Buddhist philosophy, 中观/Madhyamaka, 空性/sunyata, 龙树/Nagarjuna, 月称/Chandrakirti, 静命/Shantarakshita, 应成派/Prasangika, 自续派/Svatantrika, 瑜伽行中观, 二谛, 无自性, 缘起, 离戏, 四边/四句, 五大因, 离一多因, 人无我/法无我, 所破, 能破, 中论, 入中论, 四百论, 中观庄严论, 解义慧剑, 自空/他空, 如来藏, 二理妙车, 单空/大离戏, 相似胜义/真实胜义, 中观四步境界, 阿赖耶识, 四理/四种理, 四法依, 量理/因明, 现量/比量, 净见量, 了义/不了义, 般若/prajnaparamita, 维摩诘经/无垢称经, 维摩诘居士, 不二法门, 心净国土净, 烦恼即菩提, 戒律/vinaya, 密法/tantra, 大圆满/dzogchen, 净土/pure-land, 俱舍/abhidharma, 加行/foundations, 菩提心, 道次第, or any Buddhist concepts, debates, reasoning methods, or questions about Buddhist philosophical schools.
   Use judgment for adjacent questions when Buddhist framing or correctness anchors may help. Do not trigger for general programming tasks or code changes unrelated to Buddhist content.
 ---
 
@@ -16,32 +16,35 @@ This skill guides how to search, interpret, construct answers, and choose repres
 
 Adapt depth to question complexity. A simple follow-up may need only steps 1-2; a deep first-time explanation benefits from all five.
 
-1. **Route** -- identify which topic(s) the question touches. Read the topic's `index.md` for orientation, concept map, and concept router. Use the best search tool for the question's character (see Search Strategy below).
-2. **Read** -- load relevant topic reference docs and drill into collection docs as needed. Topic index gives orientation; reference docs give framework; collection docs give depth.
-3. **Draft** -- write an answer from wiki knowledge. Mark where citations would strengthen it.
+1. **Analyze** -- run the Question Analysis Scaffold (§6) to identify register, aspects to address, routing targets, and out-of-scope concerns. Produces a concrete answer skeleton *before* reading any file. Also scan the pattern library (`references/methodology/question-patterns.md`) for a matching question shape.
+2. **Read** -- load the topic reference docs and collection docs the scaffold's Topic Routing step identified. Topic index gives orientation; reference docs give framework; collection docs give depth.
+3. **Draft** -- write an answer from wiki knowledge, following the aspect skeleton from step 1. Mark where citations would strengthen it.
 4. **Ground** -- search the source corpus for `ref:` citations where they add value.
 5. **Verify** -- check against the topic's correctness anchors, especially for positions that diverge from training data.
 
 ## 2. Question-Type Routing
 
-| Question type | Typical approach | Example |
-|---|---|---|
-| **Conceptual** ("什么是X?") | Route to topic -> read framework -> define precisely -> show reasoning | "什么是应成派的无承认?" |
-| **Comparative** ("X和Y区别?") | May span topics -> read both -> find synthesis position | "自续派和应成派有什么区别?" |
-| **Cross-topic** | Read multiple topic docs -> integrate -> note where topics diverge | "因明和中观的关系?" |
-| **Practice** ("如何修X?") | Route to topic -> reasoning -> 定解 -> 安住 progression | "如何修空性?" |
-| **Structural** ("...的框架?") | Route to topic -> consider visualization | "中观五种分类?" |
+Quick reference only. **For the full decomposition methodology, use the Question Analysis Scaffold (§6).** §6's Register dimension subsumes these question types; the table below is a fast shortcut when the type is obvious.
+
+| Question type | Typical approach |
+|---|---|
+| **Conceptual** ("什么是X?") | Route to topic → read framework → define precisely → show reasoning |
+| **Comparative** ("X和Y区别?") | May span topics → read both → synthesize |
+| **Cross-topic** | Read multiple topic docs → integrate → note where topics diverge or 圆融 |
+| **Practice** ("如何修X?") | Route to topic → reasoning → 定解 → 安住 → 应用 progression |
+| **Structural** ("...的框架?") | Route to topic → consider visualization (see §9) |
 
 ## 3. Scope and Limitations
 
 | Topic | Status | Coverage | Routing keywords |
 |---|---|---|---|
 | **madhyamaka** (中观) | Active | 5 collections, ~97 wiki docs, topic index + 4 cross-collection docs | 空性, 中观, 二谛, 缘起, 龙树, 月称, 静命, 应成/自续, 离戏, 四边, 五大因, 离一多因, 所破/能破, 中论, 入中论, 四百论, 中观庄严论, 解义慧剑, 定解宝灯论 |
-| **foundations** (基础/加行) | Active | 2 collections (大圆满前行 17 docs, 入行论 7 docs), topic index + 3 synthesis docs (`practice-path.md`, `bodhicitta-methods.md`, `key-quotes.md`) | 前行, 加行, 道次第, 暇满, 无常, 轮回, 因果, 皈依, 菩提心, 四无量心, 六度, 金刚萨埵, 百字明, 曼茶罗, 上师瑜伽, 往生法, 出离心, 三殊胜, 大圆满前行, 入行论 |
+| **foundations** (基础/加行) | Active | 4 collections (大圆满前行 17 docs, 入行论 29 docs, 修心七要 8 docs, 佛子行 14 docs), topic index + 3 synthesis docs (`practice-path.md`, `bodhicitta-methods.md`, `key-quotes.md`) | 前行, 加行, 道次第, 暇满, 无常, 轮回, 因果, 皈依, 菩提心, 四无量心, 六度, 金刚萨埵, 百字明, 曼茶罗, 上师瑜伽, 往生法, 出离心, 三殊胜, 自他相换, 修心, 修心七要, 五力, 狮子卧, 恰卡瓦, 金洲大师, 大圆满前行, 入行论, 佛子行, 三十七颂, 无著贤, 甘露妙瓶, 根桑秋札, 恶缘转道用, 经中四法, 四不欲, 两难忍, 兴衰转道 |
 | **abhidharma** (俱舍/对法) | Active | 1 collection (俱舍论 14 docs), no topic index yet | 俱舍, 蕴界处, 五蕴, 十二处, 十八界, 六因五果, 心所法, 二十二根, 有漏无漏, 随眠, 圣道, 业道, 世间器情 |
+| **tathagatagarbha** (如来藏) | Active | 1 collection (宝性论 13 docs, 42 lessons), topic index with Editorial Policy for 觉囊派/宁玛派 reconciliation | 如来藏, 佛性, 宝性论, 究竟一乘宝性论, 无上续, 弥勒五论, 有垢/无垢真如, 七金刚处, 三宝本体, 九喻, 九种垢, 种姓, 三身, 法身/报身/化身, 十力, 四无畏, 十八不共法, 离系果, 异熟果, 不空如来藏, 他空, 句他空, 义他空, 朵洛瓦, 觉囊派, 客尘, 《如来藏大纲要狮吼论》, 《法界赞》, 《不增不减经》, 《胜鬘经》, 《如来藏经》, 佛外无涅槃 |
 | **pramana** (量理/因明) | Seed | Seed doc from 定解宝灯论 at `topics/pramana/notes-from-定解宝灯论.md`; cross-ref material in madhyamaka collections | 因明, 量理, 现量, 比量, 法称, 陈那, 三相, 能立, 因三相 |
 | **tantra** (密法) | Seed | Seed doc from 定解宝灯论; substantial加行-perspective content in 大圆满前行 (金刚萨埵观想, 密宗皈依, 上师瑜伽, 往生法) | 密法, 密宗, 灌顶, 生起次第, 圆满次第, 大圆满, 金刚乘, 三昧耶 |
-| **prajnaparamita** (般若) | Planned | No coverage yet | 般若, 心经, 金刚经, 波罗蜜多 |
+| **prajnaparamita** (般若) | Seed | 1 collection (维摩诘经, in progress — 品1 complete), topic index seeded | 般若, 心经, 金刚经, 波罗蜜多, 维摩诘, 维摩诘经, 无垢称经, 维摩诘居士, 不二法门, 入不二法门, 心净国土净, 烦恼即菩提, 非道即佛道, 菩萨净土, 净土之行, 方便示疾, 不可思议解脱, 文殊问疾, 天女散花, 香积国, 妙喜国, 法供养 |
 | **vinaya** (戒律) | Planned | No coverage yet | 戒律, 别解脱, 菩萨戒, 比丘戒 |
 | **pure-land** (净土) | Planned | No coverage yet | 净土, 阿弥陀, 极乐, 往生 |
 
@@ -67,12 +70,13 @@ Each tier adds depth without duplicating the tier above. Tier 2 references tier 
 
 Read the question's vocabulary and intent. Each topic has its own concept space. Use the **Routing keywords** column in the table above to match question vocabulary to topic. Use the topic's `index.md` (if it exists) for concept-level routing within the topic.
 
-Three topics currently have wiki content:
+Four topics currently have wiki content:
 - **madhyamaka** — 空性, 中观, 二谛, 龙树, 应成/自续, etc.
 - **foundations** — 前行, 加行, 暇满, 无常, 皈依, 菩提心, 六度, 金刚萨埵, 上师瑜伽, 往生法, etc.
 - **abhidharma** — 俱舍, 蕴界处, 六因五果, 心所法, 随眠, 圣道, etc.
+- **tathagatagarbha** — 如来藏, 佛性, 宝性论, 九喻, 三身, 他空, 不空如来藏, etc.
 
-Two topics have seed content: **pramana** and **tantra**.
+Three topics have seed content: **pramana**, **tantra**, and **prajnaparamita** (seeded by 维摩诘经, 品1 complete).
 
 ### Multi-topic questions
 
@@ -136,16 +140,49 @@ When initial search results are thin:
 3. Fall back to keyword search for exact phrases
 4. Fetch full document text around matched passages
 
-## 6. Problem Decomposition
+## 6. Question Analysis Scaffold
 
-Before searching, understand what the question actually requires. Shallow answers usually fail because they only address the surface layer.
+Run this before reading any topic doc. The scaffold produces an answer skeleton so the Read step is targeted, not exploratory. This is a **framework, not a checklist** — let the gating table set depth, run dimensions mentally, and produce no visible output except the final answer.
 
-### Identify the layers
+### Gating: how deep to run
 
-1. **The explicit question** -- what the user literally asked
-2. **The implicit context** -- which school? which truth level? what prior knowledge?
-3. **The underlying confusion** -- what conceptual gap might be driving the question?
-4. **Research axes** -- independent sub-questions that can be investigated separately
+| Question character | Dimensions to run |
+|---|---|
+| Not Buddhism | None — skill frontmatter trigger handles this |
+| Factual lookup ("中论有多少品?") | ① + ⑥ |
+| Single-concept definition ("什么是二谛?") | ① + ⑤ + ⑥ |
+| Doctrinal / philosophical (default for most) | ①–⑥ (⑦ when drift risk is real) |
+| Life-situational ("亲人离世怎么办 / 生重病时如何修 / 内心很焦虑") | ① ② ③ ④ ⑤ + light ⑥ |
+| Beginner orientation ("想开始学佛从哪里入手") | ① ② ③ ⑤ ⑥ ⑦ |
+| Ethical-behavioral ("仅有杀意是否染罪 / 破密乘誓言如何忏悔") | ① ② ④ ⑤ ⑥ |
+| Practice / experiential / comparative / cross-topic | All 7 — Context and Underlying need are load-bearing |
+| Logistical ("哪里可以闻法 / 如何找到合格上师") | ① + ⑥ |
+
+### Understand (aspects the answer should address)
+
+| # | Dimension | What to ask |
+|---|---|---|
+| ① | **Surface** | What is literally asked? |
+| ② | **Register** | What kind of question? doctrinal / practical / life-situational / orientation / ethical-behavioral / stage-self-assessment / karma-inquiry / subtle-realm / logistical / mixed |
+| ③ | **Context** | User's relationship to the question -- 闻/思/修/证 stage (doctrinal); life situation (situational); beginner / returning / seasoned (orientation) |
+| ④ | **Underlying need** | What would actually help -- concept · method · decision · reassurance · framework · correction · recalibration |
+
+### Plan (references to pull)
+
+| # | Step | Purpose |
+|---|---|---|
+| ⑤ | **Aspects to cover** | Short list derived from ①–④. This is the answer skeleton — what the answer should include, in what order. |
+| ⑥ | **Topic routing** | Which topic(s) + which specific subtopic docs. Use topic-index concept routers. |
+| ⑦ | **Out of scope** | What nearby concerns to deliberately exclude so the answer stays focused. Most load-bearing for life-situational and beginner-orientation questions. |
+
+### Pattern library lookup
+
+After running ①–④, scan `references/methodology/question-patterns.md` for a matching question shape. A match gives aspect + routing hints and `Don'ts`; absence doesn't block answering — the scaffold alone is sufficient. Patterns cluster into doctrinal (recurring misinterpretations, debates, cross-topic tangles) and practical (life-situational, stage-assessment, karma-inquiry, subtle-realm, beginner).
+
+### What the scaffold is not
+
+- Not a visible analysis layer. The agent doesn't write a "how I'm reading this question" paragraph in the response — the scaffold runs silently.
+- Not a tradition check. Nyingma is the default (established in this skill's preamble); the scaffold does not re-derive tradition framing per question. Topic correctness anchors catch the edges that matter.
 
 ## 7. Source Priority
 
@@ -215,4 +252,5 @@ Navigate tiers based on question complexity. Simple questions may need only Tier
 - `references/topics/` -- per-topic behavior + knowledge docs
 - `references/collections/` -- per-collection wikis (start with `结构总览.md` in each)
 - `references/maps/` -- topic and collection indexes
+- `references/methodology/` -- question-analysis patterns (`question-patterns.md`) consulted from §6
 - `references/public-api.md` -- REST API for corpus search when MCP unavailable

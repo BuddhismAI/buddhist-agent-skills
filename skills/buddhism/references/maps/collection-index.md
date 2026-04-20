@@ -10,6 +10,10 @@
 | 俱舍论 | abhidharma | pramana, foundations, vinaya | Complete | 14 | 160 |
 | 大圆满前行 | foundations | tantra | Complete | 17 | 144 |
 | 入行论 | foundations | madhyamaka, pramana | Complete | 29 | 201 |
+| 修心七要 | foundations | madhyamaka | Complete | 8 | 8 |
+| 佛子行 | foundations | madhyamaka | Complete | 14 | 53 |
+| 宝性论 | tathagatagarbha | madhyamaka | Complete | 13 | 42 |
+| 维摩诘经 | prajnaparamita | madhyamaka, foundations, tathagatagarbha | In Progress (品1 complete) | 2 | 66 |
 
 ## Collection Paths
 

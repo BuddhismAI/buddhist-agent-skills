@@ -50,7 +50,7 @@ Per-collection drill-down:
 
 自宗（宁玛）：入定位不承许无遮或非遮（二者皆是心之假立），后得位承许大无遮——本净大空性（非单空，而是离戏大空）。
 
-详见 `../../collections/定解宝灯论/Q1-见解无遮或非遮.md`
+详见 `../../collections/定解宝灯论/Q1-见解无遮或非遮.md`；义他空派的本颂依据与觉囊/宁玛双层读法详见 `../../collections/宝性论/06-九喻与不空五过.md §7`。tathagatagarbha topic 的全局立场见 `../tathagatagarbha/index.md §Editorial Policy`。
 
 ---
 
