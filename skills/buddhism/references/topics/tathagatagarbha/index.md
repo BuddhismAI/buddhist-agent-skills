@@ -3,7 +3,7 @@ topic: tathagatagarbha
 title: Tathāgatagarbha (如来藏) Topic Guide
 status: active
 collections: [宝性论]
-related_topics: [madhyamaka]
+related_topics: [madhyamaka, abhidharma, yogachara]
 ---
 
 # Tathāgatagarbha (如来藏) — Topic Index
@@ -46,7 +46,7 @@ Read together: 如来藏 is the 施设基 of 大双运, not a positive substance
 
 | Collection | Scope | Status | Docs |
 |---|---|---|---|
-| **宝性论** | 弥勒菩萨《究竟一乘宝性论》(Uttaratantra) — 索达吉堪布 42-lesson teaching based on 朵洛瓦《宝性论释》(觉囊派). The foundational 如来藏 text. | Complete | 13 docs (01-13) covering 总说/如来藏/菩提/功德/事业/利益 六品 + 后记 |
+| **宝性论** | 弥勒菩萨《究竟一乘宝性论》(Uttaratantra) — 索达吉堪布 42-lesson teaching based on 朵洛瓦《宝性论释》(觉囊派). The foundational 如来藏 text. | Complete | 13 docs (01-13) covering 总说/如来藏/菩提/功德/事业/利益 六品 + 后记 + `教证索引.md` (scripture citation catalog) |
 
 Other 如来藏 material lives in related collections and is referenced here, not duplicated:
 - **定解宝灯论 Q1** (in `topics/madhyamaka/`): 句他空 vs 义他空 distinction — the locus classicus for the 宁玛 critique of 觉囊派
@@ -130,6 +130,10 @@ See `collections/宝性论/结构总览.md` for the full intellectual map and le
 - 全论闭环收束
 - → `collections/宝性论/13-利益品与后记.md` — 利益品 + 甲四 后记 (L41-L42)
 
+### 教证索引 — scripture citation catalog
+- 全集合 14 篇 doc 所引 **经、论、赞、续** 汇总, 按典籍分类; 为 agent 以原始圣教量作答的 primary lookup
+- → `collections/宝性论/教证索引.md` — 60+ 典籍, 含《如来藏经》《不增不减经》《胜鬘经》《大般涅槃经》《法界赞》《陀罗尼自在王请问经》《宝女经》《如来藏大纲要狮吼论》《华严经》《入行论》《金刚经》等
+
 ## Concept Router
 
 | 问题主题 | 首先读 | 下钻 |
@@ -150,12 +154,12 @@ See `collections/宝性论/结构总览.md` for the full intellectual map and le
 | **不空如来藏颂 / "此无何所破"** | `collections/宝性论/06-九喻与不空五过.md §己七` | `topics/madhyamaka/debates.md §第九诤辩`, `topics/madhyamaka/classifications.md §1 自空/他空` |
 | **不说如来藏五过患** (怯弱/轻慢/执著虚妄/谤真实法/爱我) | `collections/宝性论/06-九喻与不空五过.md §己八` | — |
 | **大我 vs 神我 / "我者即是如来藏义"** | `collections/宝性论/06-九喻与不空五过.md §爱我过失` | Correctness anchor "如来藏不是外道的「我」" |
-| **种姓 (如来种性 / 自性住种姓 / 随增性种姓)** | `collections/宝性论/03-如来藏-总纲十义.md §因` + `06-九喻与不空五过.md §种姓三喻` | — |
+| **种姓 (如来种性 / 自性住种姓 / 随增性种姓)** | `collections/宝性论/03-如来藏-总纲十义.md §因` + `06-九喻与不空五过.md §种姓三喻` | `collections/大乘经庄严论/04-种姓品.md` (**弥勒五论兄弟论典**——本论种姓品是因位从"谁能入大乘道"的唯识式角度, 与宝性论如来藏品同源, 含断种姓辩的诚实处理) |
 | **法身/真如/种姓九喻三法对应** | `collections/宝性论/06-九喻与不空五过.md §三法对应` | — |
 | **句他空/义他空 (格鲁/觉囊对比)** | `topics/madhyamaka/classifications.md §1 句他空与义他空` | `collections/定解宝灯论/Q1-见解无遮或非遮.md`, `collections/宝性论/06-九喻与不空五过.md §己七` |
 | **菩提二清净 (自性清净 + 离垢清净)** | `collections/宝性论/07-菩提-二清净本体.md §1.5` | — |
 | **菩提二利事业 / 十五功德 (不可思议 + 不变 + 断证 + 清净)** | `collections/宝性论/08-菩提-事业功德.md §2.1` | — |
-| **三身 (本性身五相 + 报身五差别 + 化身三法) / 殊胜化身十二相 / 三身恒常 / 菩提不可思议** | `collections/宝性论/09-菩提-三身恒常.md §1.1` | 显密三身 anchor §1.7 |
+| **三身 (本性身五相 + 报身五差别 + 化身三法) / 殊胜化身十二相 / 三身恒常 / 菩提不可思议** | `collections/宝性论/09-菩提-三身恒常.md §1.1` | 显密三身 anchor §1.7; `collections/大乘经庄严论/11-菩提品-三身四智.md` (本论从**唯识转依**立三身: 三平等 + 三恒常, 与宝性论从如来藏光明立三身 互补) |
 | **显宗三身 vs 密宗三身的差别** | `collections/宝性论/09-菩提-三身恒常.md §1.7` | correctness anchor "三身显密安立的层次差别" |
 | **64 功德 / 32 离系 (十力 + 四无畏 + 十八不共法) / 32 异熟 (三十二相) / 四喻 (金刚狮子虚空月)** | `collections/宝性论/10-功德品.md §0.2` | — |
 | **十五功德 vs 六十四功德区分** | `collections/宝性论/10-功德品.md §0.1` | — |
@@ -249,6 +253,23 @@ When constructing answers, watch for:
 
 跨 topic 路由原则：**哲学诤辩（自空/他空是否相合？如来藏是否究竟？）归 madhyamaka 回答；如来藏的具体内涵（十义/九喻/三身/功德）归 tathagatagarbha 回答**。回答交叉问题时，应同时引用两个 topic 的相关 doc。
 
+### → yogachara (唯识/瑜伽行) [强 — 弥勒五论兄弟]
+
+**弥勒五论内部兄弟关系**. 如来藏 与 唯识 同属 弥勒菩萨五论 体系——四部偏 唯识 (大乘经庄严论 / 辩中边论 / 辨法法性论 / 现观庄严论) + 一部偏 如来藏 (宝性论). 核心 对 应:
+
+- **种姓 ↔ 如来藏** (因位 两种开显): 本论 种姓品 从 "谁 能入 大乘道" 的 唯识式 角度; 宝性论 如来藏品 从 "一切众生 本具 佛性" 的 如来藏式 角度. **同源但非同义** — 可 互 表 里 却 不可 简单 画等号. 详见 `collections/大乘经庄严论/04-种姓品.md` + `collections/宝性论/03-如来藏-总纲十义.md`.
+- **三身恒常 ↔ 三身四智** (果位 两种 安立): 宝性论 从 如来藏 光明分 立 三身恒常 (法身 3 理由 + 色身 7 理由); 《大乘经庄严论》 从 唯识转依 立 三身 (三平等 + 三恒常). 详见 `collections/大乘经庄严论/11-菩提品-三身四智.md` + `collections/宝性论/09-菩提-三身恒常.md`.
+
+交叉 topic 路由: 涉及弥勒五论整体架构 / 种姓/如来藏 因位辩 / 三身显教对比 的问题, 同时引两个 topic 的 index. 详细立场协调见 `topics/yogachara/index.md §Relationship with tathagatagarbha`.
+
+### → abhidharma (俱舍/对法) [轻 — 功德对应]
+
+《宝性论》功德品的 **64 功德** (32 离系 + 32 异熟 = 十力 + 四无畏 + 十八不共法 + 32 相) 与 《俱舍论》品7 "分别智品" 的 **佛不共功德** (十力 / 四无畏 / 三念住 / 大悲 等) 在内容上直接对应——两框架以不同视角 (如来藏的 "本具显发" vs 阿毗达磨的 "果位法相") 对同一组佛功德作系统化整理。交叉查询时, 宜兼读二处。
+
+- `topics/abhidharma/index.md §Cross-Topic Connections` — 反向 cross-topic 指引
+- `collections/俱舍论/品7-分别智品概览.md` — 阿毗达磨的佛不共功德系统
+- `collections/宝性论/10-功德品.md` — 如来藏的 64 功德广说
+
 ### → foundations (基础/加行) [轻度]
 
 如来藏见对修行的影响：见解提升（我具佛性）→自信（四颠倒之对治）→出离（轮回颠倒之远离）。《大圆满前行》中"皈依"章节讲胜义皈依处即如来藏，与宝性论总说品三宝本体对应。
@@ -256,6 +277,13 @@ When constructing answers, watch for:
 ### → tantra (密法) [强度]
 
 密宗立场中如来藏 = 自性光明大圆满（义同名不同，参《定解宝灯论》Q7）。《宝性论》藏文名"极喇嘛"（无上续），带密续意味——朵洛瓦宗派即以此为显密之津梁。法王如意宝亦认为《宝性论》特别深奥，需先受密法灌顶方可听闻（见课程103第1课）。
+
+### → prajnaparamita (般若) [中]
+
+《维摩诘经》的几处教义是 如来藏 思想的 sutra-level 依据:
+- **品1 "佛土常净若此, 为度下劣人故示众恶不净"** — 本净论 的 经教 核心. 与 《宝性论》"如来藏不因轮涅而有增减" 同构. 详见 `collections/维摩诘经/品01-心净国土净.md`.
+- **品8 "一切烦恼为如来种" / 烦恼即菩提** — 如来藏 的 关键 经证 之一. 但 须 严守 correctness anchor "烦恼即菩提不是放任烦恼" — 须以密乘本来清净见地诠释. 详见 `collections/维摩诘经/品08-佛道品·非道是佛道.md`.
+- **品12 观佛实相 法身 41 门** — 法身 无相 的 经教 依据, 与 《宝性论》 菩提品 三身恒常 对应. 详见 `collections/维摩诘经/品12-见阿閦佛品.md`.
 
 ## Routing Guide (natural-language shortcuts)
 

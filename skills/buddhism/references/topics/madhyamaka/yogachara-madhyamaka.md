@@ -9,11 +9,20 @@ topics: [瑜伽行中观, 静命论师, 二理妙车, 阿赖耶识, 四步境界
 
 When answering questions about 瑜伽行中观, 中观庄严论, 静命论师, 二理妙车, 阿赖耶识 in Madhyamaka context, or 唯识与中观的关系, use this file as the PRIMARY reference. For detailed arguments and per-课 traces, drill down into per-collection docs.
 
+**本文从静命论师 (瑜伽行中观开宗祖师) 角度展开**. 唯识本身作为一个独立 topic 已另立——**yogachara topic 专门处理《大乘经庄严论》等唯识宗根本论典 (弥勒菩萨 / 无著 / 世亲)** 的名言体系 (八识 / 三性 / 转依 / 三身四智 / 种姓 / 道次第). 本文 所 讨论 的 瑜伽行中观 是 "中观利器" 与 "唯识名言" 的圆融范本——**名言随顺唯识, 胜义遮遣唯识实有派**. 两个 topic 的 分工:
+
+- **本文 (madhyamaka topic)**: 中观视角下的唯识——破唯识实有派 + 二理妙车 + 静命立场
+- **yogachara topic (`../yogachara/index.md`)**: 唯识本身的系统教义——以《大乘经庄严论》为 anchor, 含 22 发心喻 / 八大理由证大乘是佛语 / 四秘密四意趣 / 八识转四智 / 真如品二无我等
+
+涉及"中观如何看唯识?" / "唯识实有派如何被破?" → 读本文; 涉及"阿赖耶识/三自性/三身四智/种姓 本身是什么?" → 读 yogachara topic.
+
 Per-collection drill-down:
 - `../../collections/中观庄严论/结构总览.md` — 全论128课的论证弧线（四段运动：奠基→破实→立世俗→守论）
 - `../../collections/中观庄严论/推理方法/离一多因.md` — 核心推理方法的完整展开
 - `../../collections/中论/品17-观业品.md` — 阿赖耶识在根本中观中的位置
 - `../../collections/中论/品24-观四谛品.md` — 缘起空性的直接宣说
+- `../../collections/大乘经庄严论/07-真如品.md` — 弥勒式二无我抉择 (唯识路径, 与龙树破立互补)
+- `../../collections/大乘经庄严论/11-菩提品-三身四智.md` — 唯识框架下的 三身四智 / 八识转四智 (本论立场), 配 correctness anchor "阿赖耶非胜义实有"
 
 ---
 

@@ -20,7 +20,7 @@ SITE = ROOT / "site"
 WIKI = ROOT / "wiki"
 
 EXCLUDE = {"log.md", "verification-report.md", "public-api.md"}
-COLLECTIONS = ["中论", "中观庄严论", "中观四百论", "解义慧剑", "定解宝灯论", "俱舍论", "大圆满前行", "入行论", "修心七要", "佛子行", "宝性论", "维摩诘经"]
+COLLECTIONS = ["中论", "中观庄严论", "中观四百论", "解义慧剑", "定解宝灯论", "俱舍论", "大圆满前行", "入行论", "修心七要", "佛子行", "二规教言论", "宝性论", "维摩诘经"]
 
 
 # -- Parsing -----------------------------------------------------------------
@@ -168,7 +168,9 @@ def breadcrumbs(page, colls):
         if page.src.name != "结构总览.md":
             crumbs.append(page.label)
     elif parts[0] == "topics":
-        crumbs.append(f'<a href="{r}topics/madhyamaka/index.html">中观专题</a>')
+        topic_name = parts[1] if len(parts) >= 2 else ""
+        topic_index_url = f"{r}topics/{topic_name}/index.html"
+        crumbs.append(f'<a href="{topic_index_url}">{topic_name} 专题</a>')
         if page.src.name != "index.md":
             crumbs.append(page.label)
     elif parts[0] == "maps":
@@ -189,7 +191,7 @@ def sidebar(page, colls, topic_pgs):
 
     # Topics section
     expanded_cls = " sb-expanded" if in_topics else ""
-    lines.append(f'<div class="sb-section-title sb-toggle{expanded_cls}">中观专题</div>')
+    lines.append(f'<div class="sb-section-title sb-toggle{expanded_cls}">主题专题</div>')
     hidden = "" if in_topics else ' style="display:none"'
     lines.append(f'<ul class="sb-pages sb-collapsible"{hidden}>')
     for tp in topic_pgs:

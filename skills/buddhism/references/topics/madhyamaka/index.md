@@ -3,11 +3,14 @@ topic: madhyamaka
 title: Madhyamaka (中观) Topic Guide
 status: active
 collections: [中论, 中观庄严论, 中观四百论, 解义慧剑, 定解宝灯论]
+peer_topics: [yogachara]
 ---
 
 # Madhyamaka (中观) -- Topic Index
 
 This topic covers 中观 (Madhyamaka / Middle Way) Buddhist philosophy from the Nyingma tradition perspective. Read this after the root SKILL.md to orient yourself in the madhyamaka knowledge landscape.
+
+**Peer topic — yogachara**: 唯识宗根本论典 (《大乘经庄严论》等弥勒五论) 单独成 topic (`../yogachara/index.md`). 两 topic 分工: **名言唯识建立** (八识 / 三性 / 转依 / 三身四智 / 种姓 / 道次第) 归 yogachara; **对唯识实有派之破 + 瑜伽行中观如何融通二宗** 归本 topic; **二者交汇** (如真如品的二无我以唯识方法论证) 双 topic 并引. 详见 `yogachara-madhyamaka.md` 开篇的分工说明。
 
 ## Trigger Conditions
 
@@ -109,6 +112,13 @@ When you need knowledge on a specific concept, use this table. **Start with the 
 | **如幻修道 / 空性习气** | `debates.md` §修行 | `../../collections/入行论/品09-世俗如幻与胜义空性修道.md` (幻师喻、"无缘最寂灭"、大乘成立佛说辩论、修胜义功德："悲智住轮回") |
 | **四念住 / 法无我** | -- | `../../collections/入行论/品09-深入法无我·四念住.md` (以身/受/心/法四念住为框架系统破法我执。微尘方分析、三时分析五根识、"有情性涅槃") |
 | **破常因生 (大自在/微尘/主物)** | `reasoning-methods.md` | `../../collections/入行论/品09-破除实执与智慧所得.md` (入行论角度的金刚屑因+破有无生因，品终以悲心收束空性) |
+| **自证分辩破 (唯识破)** | -- | `../../collections/入行论/品09-二谛安立与遣除争论.md` (刀剑喻/灯火喻/蓝色喻破自证，比中观庄严论更详尽) |
+| **foundations→madhyamaka 桥梁颂** | `../foundations/index.md` | `../../collections/佛子行/09-胜义菩提心·入定修离戏后得断实执.md` (颂22-24：唯心造/离戏/梦幻——中观空性在日用层面的落地)；`../../collections/修心七要/要02-正行修菩提心.md` (胜义菩提心四颂：思诸法如梦/观心性无生/对治亦自解/道体住赖耶——中观破心抉择与大圆满本来清净的结合) |
+| **阿赖耶识 (唯识式安立)** | `yogachara-madhyamaka.md` §阿赖耶 | `../yogachara/index.md §Correctness Anchor "阿赖耶非胜义实有"`, `../../collections/大乘经庄严论/10-菩提品-十功德.md §转依`, `../../collections/大乘经庄严论/11-菩提品-三身四智.md §辛三 (八识转四智 异熟因 + 清净能得之因)` |
+| **唯识 (作为本身的教义)** | `../yogachara/index.md` | `../../collections/大乘经庄严论/` (25 docs) — 本 topic 仅处理 中观如何看唯识 |
+| **真如 (弥勒五论式五义)** | `reasoning-methods.md` §弥勒菩萨的进路 | `../../collections/大乘经庄严论/07-真如品.md` §戊一五义 (非有非无/不一不异/无生无灭/无减无增/非净成清净) — 对比 龙树 破立 进路 |
+| **二无我 (弥勒式建立)** | `reasoning-methods.md` §弥勒菩萨的进路 | `../../collections/大乘经庄严论/07-真如品.md` §戊二 (唯识路径), `../../collections/大乘经庄严论/22-菩提分品-道体性与差别支.md §证成人无我` |
+| **大乘是佛语辩** | `debates.md` §大乘是佛语辩 | `../../collections/大乘经庄严论/02-证成大乘是佛语.md` (八大理由 + 三邪见) |
 
 ## Correctness Anchors
 
@@ -180,6 +190,30 @@ Framework documents -- read first to understand the landscape:
 | 入行论·品09 | Complete | 5 | 二谛+唯识辩论, 如幻修道+大乘成立佛说, 人无我, 法无我·四念住, 破实执+品终悲心 |
 
 Start with the collection's `结构总览.md` for the intellectual map.
+
+### 入行论品9 作为实修中观的入门
+
+foundations topic 的 `入行论 品9 智慧品` 已处理为 5 篇中观级别的文档，与本 topic 直接相连。品9 的论证结构是 madhyamaka 的完整压缩版，但以"菩提心修持者的智慧度"为入口，兼顾论理与修行情感——是 foundations 与 madhyamaka 的主要桥梁：
+
+| 品9 文档 | madhyamaka 涵盖的议题 |
+|---------|---------------------|
+| `../../collections/入行论/品09-二谛安立与遣除争论.md` | 二谛、破自证（刀剑/灯火/蓝色三喻）、破显现即心、大乘成立佛说 |
+| `../../collections/入行论/品09-世俗如幻与胜义空性修道.md` | 幻师喻、无缘最寂灭、修胜义功德（"悲智住轮回"）、空性习气 |
+| `../../collections/入行论/品09-深入人无我.md` | 人无我正面抉择、破数论外道常我、破胜论外道实我 |
+| `../../collections/入行论/品09-深入法无我·四念住.md` | 以身/受/心/法四念住为框架系统破法我执、微尘方分析、三时分析五根识 |
+| `../../collections/入行论/品09-破除实执与智慧所得.md` | 金刚屑因、破有无生因、大缘起因、相互依存破、破常因生（大自在/微尘/主物）、品终以悲心收束空性 |
+
+以 madhyamaka 视角进入时，品9 的优势：推理结构完整（五大因全数涉及）、辩论对象明确（唯识宗自证、数论外道、胜论外道、大自在天）、空性与大悲在品终直接合一。
+
+### 跨 topic 连接：foundations
+
+foundations topic 的 `入行论 品9`（5 文档）、`佛子行 颂22-24`、`修心七要 要02 胜义四颂` 是 madhyamaka 在实修菩提心语境下的直接落地：
+
+- **佛子行·胜义菩提心三颂**：`../../collections/佛子行/09-胜义菩提心·入定修离戏后得断实执.md` — 颂22"一切境现唯心造，心性本来离戏边"、颂23悦意境彩虹喻、颂24"诸苦如同梦子死"。以 37 颂浓缩版提供"入定修离戏+后得断实执"的最简实修框架，frontmatter 明言"颂22-24 是 foundations→madhyamaka 的桥梁"。
+- **修心七要·胜义菩提心四颂**：`../../collections/修心七要/要02-正行修菩提心.md` §乙一 — "思诸法如梦/观心性无生/对治亦自解/道体住赖耶"，前三颂破三轮（所取/能取/对治），第四颂安住光明阿赖耶（此处"阿赖耶"特指如来藏光明分）。堪布明言此与大圆满"本来清净"见地相同——是 madhyamaka 抉择心空之后向 光明 的 过渡。
+- **配套 foundations 顶层文档**：`../foundations/key-quotes.md` §九 收录修心七要胜义菩提心四颂等关键教证；`../foundations/bodhicitta-methods.md` §1.4/§4 对胜义菩提心的 方法论 给出 跨集 综合。
+
+方向对照：此 topic 从 madhyamaka 论典出发抉择空性理论；foundations 则从 菩提心 修持 出发，以 中观见 收束 胜义菩提心 的 修法。二 topic 在 入行论品9 / 佛子行 颂22-24 / 修心七要 要02 处交会——**madhyamaka 给抉择骨架，foundations 给修持入口**。
 
 ### Visualization Triggers
 
