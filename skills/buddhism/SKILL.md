@@ -14,13 +14,18 @@ This skill guides how to search, interpret, construct answers, and choose repres
 
 ## 1. Answering Workflow
 
-Adapt depth to question complexity. A simple follow-up may need only steps 1-2; a deep first-time explanation benefits from all five.
+Adapt depth to question complexity. A simple follow-up may need only steps 1-2; a deep first-time explanation benefits from all five. For first-time questions about a covered doctrinal term, reasoning method, school distinction, or correctness-anchor topic, read at least one relevant `references/...` file before corpus search even when a direct source search might also work. Skip the reference-file read only for named-source/passage lookup or everyday basics where no framework judgment is needed.
 
 1. **Analyze** -- run the Question Analysis Scaffold (§6) to identify register, aspects to address, routing targets, and out-of-scope concerns. Produces a concrete answer skeleton *before* reading any file. Also scan the pattern library (`references/methodology/question-patterns.md`) for a matching question shape.
 2. **Read** -- load the topic reference docs and collection docs the scaffold's Topic Routing step identified. Topic index gives orientation; reference docs give framework; collection docs give depth.
-3. **Draft** -- write an answer from wiki knowledge, following the aspect skeleton from step 1. Mark where citations would strengthen it.
-4. **Ground** -- search the source corpus for `ref:` citations where they add value.
+3. **Draft** -- write an answer from wiki knowledge, following the aspect skeleton from step 1. Treat this as a scaffold: mark where citations would strengthen it, and do not finalize a workspace card from wiki/reference knowledge alone.
+4. **Ground** -- search the source corpus for `ref:` citations before finalizing workspace cards. Citations are especially required for study roadmaps, multi-stage curricula, doctrinal definitions, practice instructions, comparisons, and claims derived from topic references.
 5. **Verify** -- check against the topic's correctness anchors, especially for positions that diverge from training data.
+   For study roadmaps or curriculum cards with several named texts, stages, and
+   practice steps, use the runtime `validate` subagent after grounding if it is
+   available.
+
+For sourced doctrinal definitions, school comparisons, study roadmaps, and framework-sensitive explanations, the cited content should be preserved in a Markdown workspace card. Chat can summarize what the card contains, but should not be the only place where the sourced answer lives.
 
 ## 2. Question-Type Routing
 
@@ -61,7 +66,7 @@ Tier 4: source corpus     → grounding (searched for exact citations when neede
 Each tier adds depth without duplicating the tier above. Tier 2 references tier 3 for detail; tier 3 references tier 4 for grounding.
 
 **How the agent should handle each status:**
-- **Active**: Tier 1 (route) → Tier 2 (read topic index + relevant synthesis docs for framework) → Tier 3 (drill into collection docs for specifics) → Tier 4 (search corpus for citations if needed). Most questions can be answered at tier 2-3 without hitting tier 4.
+- **Active**: Tier 1 (route) → Tier 2 (read topic index + relevant synthesis docs for framework) → Tier 3 (drill into collection docs for specifics) → Tier 4 (search corpus for citations before final workspace cards). Tier 2-3 can shape the answer, but user-visible workspace cards should not remain wiki-only when source access is available.
 - **Seed**: Check seed docs (partial tier 2) for whatever content exists, then supplement with training knowledge. State the topic has partial coverage.
 - **Planned**: Answer from training knowledge. Be transparent that curated source material doesn't exist yet for this topic.
 
@@ -103,43 +108,64 @@ See `references/maps/topic-index.md` for available topics and `references/maps/c
 
 ### Knowledge-first, then corpus search
 
-For every question, follow this flow:
+For every non-trivial Buddhist knowledge question, follow this flow:
 
-1. **Find the right reference file** -- use the topic's concept router for known concepts, or search `skill_refs` for natural-language lookup: `POST /api/v1/search { sources: ["skill_refs"], query: "..." }`. This returns file + section pointers into the wiki.
-2. **Read the reference file** -- locally or via fetch endpoint. These give you the intellectual framework.
-3. **Write a quick answer** from the wiki framework. Mark where citations are needed.
-4. **Do targeted corpus search** (`local`/`fashi`) for `ref:` citations grounding specific claims.
+1. **Locate the right reference file** -- use the topic's concept router for
+   known concepts, or call `search_skill_refs` only when you need on-demand
+   discovery. This returns routing snippets and `read_ref.path` values into the
+   wiki.
+2. **Read the reference file** with the normal `read` tool. These files give
+   the intellectual framework, not final evidence.
+3. **Write a quick scaffold** from the wiki framework when useful. Mark where
+   citations are needed.
+4. **Do targeted corpus search** with evidence tools (`search_hybrid`,
+   `search_local`, `search_fashi`, `search_corpus_keyword`, `fetch_corpus`,
+   `fetch_fashi`, or canonical tools as appropriate) for `ref:` citations
+   grounding specific claims.
 5. **Edit the answer** to add citations and evidence.
 
 The wiki gives you enough to write a good initial answer immediately. Don't wait for corpus search to start writing.
+But if you wrote a workspace card from the wiki, continue to the grounding step before final chat. A final Buddhist study card with zero `ref:` citations is not acceptable when source access is available; either keep it explicitly provisional with citation gaps, or edit it into a cited card.
 
-**Fallback:** If `skill_refs` search is unavailable, fall back to the topic's Concept Router + Grep. If corpus search is also unavailable, answer from the wiki alone but tell the user you could not verify against the original source.
+**Fallback:** If `search_skill_refs` is unavailable, fall back to the topic's
+Concept Router + Grep. If corpus search is also unavailable, answer from the
+wiki alone but tell the user you could not verify against the original source.
 
 ### Search tool selection
 
 | Question character | Recommended search | Why |
 |---|---|---|
-| Uses Buddhist concepts ("空性和无我有什么关系?") | `skill_refs` search | Wiki is organized by concepts -- semantic search finds the right doc |
-| Experiential / personal ("我打坐时感到很焦虑") | Source corpus (`local`/`fashi`) | Wiki is technical; source teachings address lived experience |
-| Generic / ambiguous ("佛教怎么看待痛苦?") | Source corpus first, then `skill_refs` | Source search discovers relevant angles; `skill_refs` navigates to framework |
+| Uses Buddhist concepts ("空性和无我有什么关系?") | Topic router or `search_skill_refs` on demand | Wiki is organized by concepts -- semantic search finds the right doc when the router is not obvious |
+| Experiential / personal ("我打坐时感到很焦虑") | Source corpus (`search_hybrid`/`search_fashi`) | Wiki is technical; source teachings address lived experience |
+| Generic / ambiguous ("佛教怎么看待痛苦?") | Source corpus plus topic router when framework matters | Source search discovers relevant angles; the wiki helps organize them |
 | Clear concept, clear topic ("应成派的无承认是什么意思?") | Concept Router (no search needed) | Concept maps directly to a known doc |
 
 ### Source access paths
 
-1. **MCP tools** (`search_hybrid`, `fetch_local`, `fetch_fashi`) -- if connected
-2. **Public REST API** at `https://api.shuiyue.ai/api/v1` -- see `references/public-api.md` for endpoints. Three source types:
-   - `skill_refs` -- semantic search over skill reference files (finds the right wiki doc)
-   - `local` -- search teaching corpus extractions (for citable evidence)
-   - `fashi` -- search fashi.ai corpus
-3. **Wiki-only** -- if neither MCP nor HTTP is available, answer from compiled wiki but explicitly tell the user you could not verify against the original source. Still name the main relevant texts or collection docs.
+1. **Reference routing**: read known files directly, or use
+   `search_skill_refs` on demand to discover the file to read.
+2. **Evidence search**: use `search_hybrid` by default, or source-specific
+   `search_local` / `search_fashi` when filters matter.
+3. **Original text fetch**: use `fetch_corpus` for local markdown documents and
+   `fetch_fashi` for fashi segments.
+4. **Wiki-only** -- if corpus/canonical source access is unavailable, answer
+   from compiled wiki but explicitly tell the user you could not verify against
+   the original source. Still name the main relevant texts or collection docs.
 
 ### Reading search results
 
-Search results from extraction data contain structured fields:
-- **qa_pairs**: Pre-answered questions -- most directly useful
-- **key_terms**: Definitions with context -- good for conceptual questions
-- **misconceptions**: Common wrong views with corrections -- high value for debate questions
-- **verses**: Root text verses -- use for citations
+Search results from extraction data expose runtime `chunk_type` values. When a
+tool offers a `chunk_types` filter, use only these exact values:
+- `qa`: pre-answered questions -- most directly useful
+- `key_term`: definitions with context -- good for conceptual questions
+- `misconception`: common wrong views with corrections -- high value for debate questions
+- `verse`: root text verses -- useful when source wording matters
+- `lesson`: practice or study guidance distilled from a teaching
+- `summary`: document-level summaries
+- `koan`: short illustrative teaching stories
+
+Do not pass extraction field names such as `qa_pairs`, `key_terms`, or workspace
+card categories such as `passage` as `chunk_types`.
 
 ### Deepening
 
@@ -197,7 +223,7 @@ After running ①–④, scan `references/methodology/question-patterns.md` for 
 
 | Source | What it provides | Priority |
 |---|---|---|
-| **Topic reference docs** | Intellectual framework, correctness anchors, concept maps | Read first |
+| **Topic reference docs** | Intellectual framework, correctness anchors, concept maps | Read first, but do not cite as final evidence |
 | **Collection wiki docs** | Grounded arguments, verse analysis, lesson context | Drill-down |
 | **Corpus search** (MCP/API) | Citable evidence, original quotes | Citation layer |
 | **Agent's training data** | Background knowledge | Lowest -- verify against above |
