@@ -186,6 +186,6 @@ Cross-references to topic index docs live in the routing line; these patterns do
 - 如何衡量与自己相应（法要能对治烦恼、生起出离与菩提心为相应征相）；
 - 依止合格上师的重要性 —— 但先不急着归依任一门派。
 
-**Topic routing:** `topics/foundations/index.md`（加行入门）; `references/maps/topic-index.md`（主题地图）; `references/maps/collection-index.md`（经论清单）; drill: `collections/佛子行/` 作为最短入门、`collections/大圆满前行/` 作为最系统入门。
+**Topic routing:** `references/topics/foundations/index.md`（加行入门）; `references/maps/topic-index.md`（主题地图）; `references/maps/collection-index.md`（经论清单）; drill: `references/collections/佛子行/` 作为最短入门、`references/collections/大圆满前行/` 作为最系统入门。
 
 **Don'ts:** 不堆砌完整宗派分类；不默认用户已懂藏传术语；不推销宁玛为唯一正道（即便这是本技能默认）；不假设用户已有汉传 vs 藏传 vs 南传 的先验偏好；不替用户选择宗派。

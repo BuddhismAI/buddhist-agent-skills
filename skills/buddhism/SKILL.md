@@ -18,11 +18,12 @@ Adapt depth to question complexity. A simple follow-up may need only steps 1-2; 
 1. **Analyze** -- run the Question Analysis Scaffold (§6) to identify register, aspects to address, routing targets, and out-of-scope concerns. Produces a concrete answer skeleton *before* reading any file. Also scan the pattern library (`references/methodology/question-patterns.md`) for a matching question shape.
 2. **Read** -- load the topic reference docs and collection docs the scaffold's Topic Routing step identified. Topic index gives orientation; reference docs give framework; collection docs give depth.
 3. **Draft** -- write an answer from wiki knowledge, following the aspect skeleton from step 1. Treat this as a scaffold: mark where citations would strengthen it, and do not finalize a workspace card from wiki/reference knowledge alone.
-4. **Ground** -- search the source corpus for `ref:` citations before finalizing workspace cards. Citations are especially required for study roadmaps, multi-stage curricula, doctrinal definitions, practice instructions, comparisons, and claims derived from topic references.
+4. **Ground** -- search the source corpus for `ref:` citations before finalizing workspace cards. Citations are especially required for study roadmaps, multi-stage curricula, doctrinal definitions, practice instructions, comparisons, and claims derived from topic references. If MCP corpus tools are unavailable, read `references/public-api.md` and use the REST API quick source check before giving up on source grounding.
 5. **Verify** -- check against the topic's correctness anchors, especially for positions that diverge from training data.
    For study roadmaps or curriculum cards with several named texts, stages, and
    practice steps, use the runtime `validate` subagent after grounding if it is
    available.
+6. **Disclose** -- for study roadmaps and curriculum answers, end with a brief source-scope note stating whether the answer used skill references only, local corpus search, fetched full source text, or original transcripts end-to-end.
 
 For sourced doctrinal definitions, school comparisons, study roadmaps, and framework-sensitive explanations, the cited content should be preserved in a Markdown workspace card. Chat can summarize what the card contains, but should not be the only place where the sourced answer lives.
 
@@ -46,18 +47,18 @@ Quick reference only. **For the full decomposition methodology, use the Question
 | **foundations** (基础/加行) | Active | 5 collections (大圆满前行 18, 入行论 28, 修心七要 8, 佛子行 15, 二规教言论 13), topic index + 3 synthesis docs (`practice-path.md`, `bodhicitta-methods.md`, `key-quotes.md`) | 前行, 加行, 道次第, 暇满, 无常, 轮回, 因果, 皈依, 菩提心, 四无量心, 六度, 金刚萨埵, 百字明, 曼茶罗, 上师瑜伽, 往生法, 出离心, 三殊胜, 自他相换, 修心, 修心七要, 五力, 狮子卧, 恰卡瓦, 金洲大师, 大圆满前行, 入行论, 佛子行, 三十七颂, 无著贤, 甘露妙瓶, 根桑秋札, 恶缘转道用, 经中四法, 四不欲, 两难忍, 兴衰转道, 二规, 二规教言论, 佛规, 人规, 妙慧, 稳重, 有愧, 不放逸, 正直, 誓言坚定, 知恩图报, 利他, 信心, 布施, 十种功德, 世法即佛法根, 护法神, 麦彭仁波切 |
 | **abhidharma** (俱舍/对法) | Active | 1 collection (俱舍论 16 docs, 160 lessons), topic index with Editorial Policy for 有部/经部 fault-line | 俱舍, 阿毗达磨, 蕴界处, 五蕴, 十二处, 十八界, 六因五果四缘, 心所法 (46/51), 二十二根, 不相应行, 无表色, 极微, 有漏无漏, 三无为, 十二缘起, 业道, 表业/无表业, 别解脱戒, 随眠 (98), 见所断/修所断, 三世实有, 圣道, 五道, 四向四果, 十六心, 三十七菩提分, 阿罗汉退转, 十智, 十力, 四无畏, 大悲, 三明六通, 四禅八定, 八解脱, 八胜处, 十遍处, 四无量心, 须弥山宇宙 |
 | **tathagatagarbha** (如来藏) | Active | 1 collection (宝性论 14 docs, 42 lessons), topic index with Editorial Policy for 觉囊派/宁玛派 reconciliation | 如来藏, 佛性, 宝性论, 究竟一乘宝性论, 无上续, 弥勒五论, 有垢/无垢真如, 七金刚处, 三宝本体, 九喻, 九种垢, 种姓, 三身, 法身/报身/化身, 十力, 四无畏, 十八不共法, 离系果, 异熟果, 不空如来藏, 他空, 句他空, 义他空, 朵洛瓦, 觉囊派, 客尘, 《如来藏大纲要狮吼论》, 《法界赞》, 《不增不减经》, 《胜鬘经》, 《如来藏经》, 佛外无涅槃 |
-| **yogachara** (唯识/瑜伽行) | Active | 1 collection (大乘经庄严论 complete, 25 docs, 111 lessons across 21 品), topic index at `topics/yogachara/index.md` with Editorial Policy for 唯识/中观 fault-line handling (本论唯识本文 / 索达吉堪布宁玛重释 / 中观对唯识实有派破斥 三层) | 唯识, 瑜伽行, yogachara, cittamātra, 弥勒菩萨, 无著菩萨, 世亲, 安慧, 弥勒五论, 大乘经庄严论, 辩中边论, 辨法法性论, 瑜伽师地论, 法相宗, 阿赖耶识, 末那识, 八识, 八识转四智, 转依, 三自性, 遍计所执, 依他起, 圆成实, 三无性, 唯识所现, 唯识无境, 万法唯心, 所取能取, 相分见分, 自证分, 习气种子, 种姓品 (大乘种姓), 真如 (唯识式), 二无我 (唯识式), 三身, 自性身/法身/报身/化身, 四智, 大圆镜智/平等性智/妙观察智/成所作智, 三平等三恒常, 五法 (本论1+4), 七义, 五种无上意义, 八大理由证大乘是佛语, 四秘密四意趣, 22发心喻, 51种作意, 转依七种, 甚深16种, 任运事业四喻, 十七种修行功德, 九种菩萨赞叹, 五相菩萨, 四种受生, 菩提六安立, 密意疏, 胜乘甘露喜宴, 麦彭仁波切密意疏 |
-| **pramana** (量理/因明) | Seed | Aggregated topic index at `topics/pramana/index.md` drawing from 解义慧剑, 定解宝灯论, 中观庄严论, 入行论. Covers 四理, 现量四种, 比量三要, 量之四分 (观现世/净见/相似胜义/真实胜义), 四法依, 八辩才, 量士夫. No dedicated 因明 root text yet (e.g., 《释量论》). | 因明, 量理, pramāṇa, 释量论, 法称, 陈那, 现量, 比量, 自证现量, 观现世量, 净见量, 相似胜义量, 真实胜义量, 量之四分, 四理, 作用理, 观待理, 法尔理, 证成理, 因三相, 四法依, 八辩才, 量士夫, 自证, 遣余, 共相/自相 |
-| **tantra** (密法/金刚乘) | Seed | Aggregated topic index at `topics/tantra/index.md` drawing from 定解宝灯论 (Q4-Q7), 大圆满前行, 宝性论. Covers 大圆满直断/顿超, 续部分类, 等净无二, 显密融通, 加行视角实修 (金刚萨埵/上师瑜伽/往生法), 显密三身差别. No dedicated tantra root text yet (e.g., 大幻化网, 心性休息). | 密法, 密宗, 金刚乘, 大圆满, dzogchen, 直断, 顿超, 童子瓶佛身, 灌顶, 三昧耶, 生起次第, 圆满次第, 玛哈/阿努/阿底约嘎, 九乘次第, 等净无二, 显密融通, 大圆满三部, 三种智慧, 大手印, 道果, 息法, 双运大中观, 续部分类 |
-| **prajnaparamita** (般若) | Active | 1 collection (维摩诘经 complete, 21 docs, 14 品 / 66 lessons), topic index at `topics/prajnaparamita/index.md` with full concept router, correctness anchors (心净国土净非唯心 / 烦恼即菩提 / 不二非一 / 秽土修行不否定净土法门 / 居士相非普通在家人), cross-topic connections to madhyamaka / foundations / tathagatagarbha / tantra | 般若, 心经, 金刚经, 波罗蜜多, 维摩诘, 维摩诘经, 无垢称经, 维摩诘居士, 不二法门, 入不二法门, 默然无言, 心净国土净, 烦恼即菩提, 非道即佛道, 一切烦恼为如来种, 菩萨净土, 十七种净土因, 方便示疾, 不可思议解脱, 以空病空, 文殊问疾, 天女散花, 舍利弗转女身, 观众生十一喻, 真实四无量心, 无住为本, 莲华喻, 普现色身, 三十一菩萨不二, 菩萨成就八法, 尽无尽解脱法门, 不尽有为不住无为, 香积国, 妙喜国, 阿閦佛, 观佛实相, 法供养, 药王菩萨, 月盖比丘, 菩萨二印 |
-| **pure-land** (净土) | Active | 1 collection (极乐愿文大疏 complete, 14 top docs + 4 reasoning-method docs + 结构总览, 104 lessons), topic index at `topics/pure-land/index.md` with concept router, correctness anchors (学密者可往生 / 除五无间舍法罪外皆可生 / 疑心是最大障非业障 / 女身可往生 / 极乐非纯心现亦非物理某地 / Nyingma不主张独修 / 临终可诵极乐愿文本身), Key Distinctions from East Asian Pure Land, cross-topic connections to foundations / tantra / madhyamaka / prajnaparamita / abhidharma / vinaya | 净土, 极乐, 极乐世界, 往生, 往生极乐, 阿弥陀佛, 无量光佛, 无量寿佛, 观世音菩萨, 大势至菩萨, 莲花生大士 (as Amitabha's 化身), 极乐愿文, 极乐愿文大疏, 乔美仁波切, 喇拉曲智仁波切, 往生四因, 明观福田, 积资净障, 发菩提心, 发清净愿, 七支供, 对治七烦恼, 四对治力, 所依/厌患/现行/返回, 真实供养, 意幻供养, 自成供养, 五无间罪, 近无间罪, 舍法罪, 诽谤菩萨罪, 恶见罪, 佛制罪, 别解脱戒, 菩萨戒十八堕, 密乘十四根本, 八粗支, 闻名功德, 闻名合掌福胜三千界, 闻名不退转菩提, 闻名不转女身, 生生世世具净戒, 持佛号救八难, 水火毒兵夜罗刹, 化生莲花, 四生中最胜, 五眼五通, 疑障五百岁, 花不绽放, 八功德水, 无量宫, 现喜刹, 具德刹, 妙圆刹, 密严刹, 妙拂洲, 邬金刹, 普陀山, 杨柳宫, 三佛相续住世, 胜光妙聚王如来, 坚德宝聚王如来, 成愿咒, 增倍咒, 达雅塔班赞哲雅, 谛实语加持, 陀罗尼, 法王如意宝, 晋美彭措, 极乐法会, 印光大师, 临终接引, 中阴接引, 八大菩萨接引, 临终十念, 临终助念, 狮子卧, 颇瓦法, 往生法 |
-| **vinaya** (戒律) | Seed | Aggregated topic index at `topics/vinaya/index.md` drawing from 俱舍论 品4 (戒律法相基础), 入行论 (菩萨戒完整体系), 大圆满前行 (业果与三昧耶). Covers 三戒分类, 戒体的传统差异, 三聚净戒, 四对治力, 性罪/遮罪, 业道. No dedicated 律藏 root text yet (e.g., 萨班《三律仪论》, 《菩萨戒品》). | 戒律, vinaya, 戒, śīla, 律仪, 三戒, 别解脱戒, prātimokṣa, 菩萨戒, 三聚净戒, 摄律仪/摄善法/饶益有情, 密乘戒, 三昧耶, samaya, 戒体, 无表色, 表业无表业, 业道, 十善/十不善业道, 五无间罪, 四对治力, 性罪/遮罪, 学处, 还净, 受戒, 舍戒, 持戒/破戒 |
+| **yogachara** (唯识/瑜伽行) | Active | 1 collection (大乘经庄严论 complete, 25 docs, 111 lessons across 21 品), topic index at `references/topics/yogachara/index.md` with Editorial Policy for 唯识/中观 fault-line handling (本论唯识本文 / 索达吉堪布宁玛重释 / 中观对唯识实有派破斥 三层) | 唯识, 瑜伽行, yogachara, cittamātra, 弥勒菩萨, 无著菩萨, 世亲, 安慧, 弥勒五论, 大乘经庄严论, 辩中边论, 辨法法性论, 瑜伽师地论, 法相宗, 阿赖耶识, 末那识, 八识, 八识转四智, 转依, 三自性, 遍计所执, 依他起, 圆成实, 三无性, 唯识所现, 唯识无境, 万法唯心, 所取能取, 相分见分, 自证分, 习气种子, 种姓品 (大乘种姓), 真如 (唯识式), 二无我 (唯识式), 三身, 自性身/法身/报身/化身, 四智, 大圆镜智/平等性智/妙观察智/成所作智, 三平等三恒常, 五法 (本论1+4), 七义, 五种无上意义, 八大理由证大乘是佛语, 四秘密四意趣, 22发心喻, 51种作意, 转依七种, 甚深16种, 任运事业四喻, 十七种修行功德, 九种菩萨赞叹, 五相菩萨, 四种受生, 菩提六安立, 密意疏, 胜乘甘露喜宴, 麦彭仁波切密意疏 |
+| **pramana** (量理/因明) | Seed | Aggregated topic index at `references/topics/pramana/index.md` drawing from 解义慧剑, 定解宝灯论, 中观庄严论, 入行论. Covers 四理, 现量四种, 比量三要, 量之四分 (观现世/净见/相似胜义/真实胜义), 四法依, 八辩才, 量士夫. No dedicated 因明 root text yet (e.g., 《释量论》). | 因明, 量理, pramāṇa, 释量论, 法称, 陈那, 现量, 比量, 自证现量, 观现世量, 净见量, 相似胜义量, 真实胜义量, 量之四分, 四理, 作用理, 观待理, 法尔理, 证成理, 因三相, 四法依, 八辩才, 量士夫, 自证, 遣余, 共相/自相 |
+| **tantra** (密法/金刚乘) | Seed | Aggregated topic index at `references/topics/tantra/index.md` drawing from 定解宝灯论 (Q4-Q7), 大圆满前行, 宝性论. Covers 大圆满直断/顿超, 续部分类, 等净无二, 显密融通, 加行视角实修 (金刚萨埵/上师瑜伽/往生法), 显密三身差别. No dedicated tantra root text yet (e.g., 大幻化网, 心性休息). | 密法, 密宗, 金刚乘, 大圆满, dzogchen, 直断, 顿超, 童子瓶佛身, 灌顶, 三昧耶, 生起次第, 圆满次第, 玛哈/阿努/阿底约嘎, 九乘次第, 等净无二, 显密融通, 大圆满三部, 三种智慧, 大手印, 道果, 息法, 双运大中观, 续部分类 |
+| **prajnaparamita** (般若) | Active | 1 collection (维摩诘经 complete, 21 docs, 14 品 / 66 lessons), topic index at `references/topics/prajnaparamita/index.md` with full concept router, correctness anchors (心净国土净非唯心 / 烦恼即菩提 / 不二非一 / 秽土修行不否定净土法门 / 居士相非普通在家人), cross-topic connections to madhyamaka / foundations / tathagatagarbha / tantra | 般若, 心经, 金刚经, 波罗蜜多, 维摩诘, 维摩诘经, 无垢称经, 维摩诘居士, 不二法门, 入不二法门, 默然无言, 心净国土净, 烦恼即菩提, 非道即佛道, 一切烦恼为如来种, 菩萨净土, 十七种净土因, 方便示疾, 不可思议解脱, 以空病空, 文殊问疾, 天女散花, 舍利弗转女身, 观众生十一喻, 真实四无量心, 无住为本, 莲华喻, 普现色身, 三十一菩萨不二, 菩萨成就八法, 尽无尽解脱法门, 不尽有为不住无为, 香积国, 妙喜国, 阿閦佛, 观佛实相, 法供养, 药王菩萨, 月盖比丘, 菩萨二印 |
+| **pure-land** (净土) | Active | 1 collection (极乐愿文大疏 complete, 14 top docs + 4 reasoning-method docs + 结构总览, 104 lessons), topic index at `references/topics/pure-land/index.md` with concept router, correctness anchors (学密者可往生 / 除五无间舍法罪外皆可生 / 疑心是最大障非业障 / 女身可往生 / 极乐非纯心现亦非物理某地 / Nyingma不主张独修 / 临终可诵极乐愿文本身), Key Distinctions from East Asian Pure Land, cross-topic connections to foundations / tantra / madhyamaka / prajnaparamita / abhidharma / vinaya | 净土, 极乐, 极乐世界, 往生, 往生极乐, 阿弥陀佛, 无量光佛, 无量寿佛, 观世音菩萨, 大势至菩萨, 莲花生大士 (as Amitabha's 化身), 极乐愿文, 极乐愿文大疏, 乔美仁波切, 喇拉曲智仁波切, 往生四因, 明观福田, 积资净障, 发菩提心, 发清净愿, 七支供, 对治七烦恼, 四对治力, 所依/厌患/现行/返回, 真实供养, 意幻供养, 自成供养, 五无间罪, 近无间罪, 舍法罪, 诽谤菩萨罪, 恶见罪, 佛制罪, 别解脱戒, 菩萨戒十八堕, 密乘十四根本, 八粗支, 闻名功德, 闻名合掌福胜三千界, 闻名不退转菩提, 闻名不转女身, 生生世世具净戒, 持佛号救八难, 水火毒兵夜罗刹, 化生莲花, 四生中最胜, 五眼五通, 疑障五百岁, 花不绽放, 八功德水, 无量宫, 现喜刹, 具德刹, 妙圆刹, 密严刹, 妙拂洲, 邬金刹, 普陀山, 杨柳宫, 三佛相续住世, 胜光妙聚王如来, 坚德宝聚王如来, 成愿咒, 增倍咒, 达雅塔班赞哲雅, 谛实语加持, 陀罗尼, 法王如意宝, 晋美彭措, 极乐法会, 印光大师, 临终接引, 中阴接引, 八大菩萨接引, 临终十念, 临终助念, 狮子卧, 颇瓦法, 往生法 |
+| **vinaya** (戒律) | Seed | Aggregated topic index at `references/topics/vinaya/index.md` drawing from 俱舍论 品4 (戒律法相基础), 入行论 (菩萨戒完整体系), 大圆满前行 (业果与三昧耶). Covers 三戒分类, 戒体的传统差异, 三聚净戒, 四对治力, 性罪/遮罪, 业道. No dedicated 律藏 root text yet (e.g., 萨班《三律仪论》, 《菩萨戒品》). | 戒律, vinaya, 戒, śīla, 律仪, 三戒, 别解脱戒, prātimokṣa, 菩萨戒, 三聚净戒, 摄律仪/摄善法/饶益有情, 密乘戒, 三昧耶, samaya, 戒体, 无表色, 表业无表业, 业道, 十善/十不善业道, 五无间罪, 四对治力, 性罪/遮罪, 学处, 还净, 受戒, 舍戒, 持戒/破戒 |
 
 **Three-tier retrieval model** (for Active topics):
 
 ```
 Tier 1: SKILL.md         → routing (which topic? always in context)
-Tier 2: topics/<topic>/   → orientation + framework (index.md for routing, synthesis docs for cross-collection knowledge)
+Tier 2: references/topics/<topic>/   → orientation + framework (index.md for routing, synthesis docs for cross-collection knowledge)
 Tier 3: collections/*/    → depth (per-collection docs with full argument detail, verses, stories)
 Tier 4: source corpus     → grounding (searched for exact citations when needed)
 ```
@@ -85,9 +86,9 @@ Seven topics are Active (have a topic index + dedicated source collection(s) pro
 - **pure-land** — 极乐世界, 阿弥陀佛, 往生四因, 七支供, 明观福田, 积资净障, 发清净愿, 疑障五百岁, 临终接引, etc.
 
 Three topics are Seed (have a topic index aggregating cross-collection content, but no dedicated root text yet):
-- **pramana** — `topics/pramana/index.md` (4 source collections cross-ref)
-- **tantra** — `topics/tantra/index.md` (3 source collections cross-ref)
-- **vinaya** — `topics/vinaya/index.md` (3 source collections cross-ref)
+- **pramana** — `references/topics/pramana/index.md` (4 source collections cross-ref)
+- **tantra** — `references/topics/tantra/index.md` (3 source collections cross-ref)
+- **vinaya** — `references/topics/vinaya/index.md` (3 source collections cross-ref)
 
 For Seed topics, the index doc is the entry point and contains the substantive aggregated material; drill into the cross-referenced collections for full depth.
 
@@ -130,6 +131,22 @@ But if you wrote a workspace card from the wiki, continue to the grounding step 
 Concept Router + Grep. If corpus search is also unavailable, answer from the
 wiki alone but tell the user you could not verify against the original source.
 
+### Internal and public source access
+
+Use the richest source access available in the current environment:
+
+1. **Buddhist Assistant / internal agents**: Prefer `search_hybrid` for source evidence, `search_skill_refs` only for routing, and `fetch_corpus` / `fetch_fashi` for quote-level verification. Use `search_local` only when local filters matter; use `search_corpus_keyword` for exact terms or rare phrases.
+2. **Public agents without MCP tools**: Read `references/public-api.md` early. Use its REST workflow to search `sources: ["local"]` and then fetch by `fetch_ref`. If a search result lacks `fetch_ref`, use its `source_path` / `sourcePath` metadata as the corpus fetch path.
+3. **Offline agents**: Use installed files under `references/` as framework only. State that original corpus verification was unavailable.
+
+Reference wiki docs and source corpus are different layers. `references/topics/*` and `references/collections/*` are compiled study wikis used for routing, synthesis, and correctness anchors; they are not final evidence. The source corpus is the original teaching text accessed through MCP or REST search/fetch tools.
+
+Path convention: from `SKILL.md`, use full repo-relative paths such as
+`references/topics/madhyamaka/index.md`. Inside a reference doc, shorter links
+such as `topics/madhyamaka/index.md` or `collections/中论/结构总览.md` are
+relative to the `references/` directory; prepend `references/` if your file
+reader starts from the skill root.
+
 ### Search tool selection
 
 | Question character | Recommended search | Why |
@@ -147,9 +164,17 @@ wiki alone but tell the user you could not verify against the original source.
    `search_local` / `search_fashi` when filters matter.
 3. **Original text fetch**: use `fetch_corpus` for local markdown documents and
    `fetch_fashi` for fashi segments.
-4. **Wiki-only** -- if corpus/canonical source access is unavailable, answer
+4. **REST fallback**: if MCP evidence tools are unavailable, use
+   `references/public-api.md` (`POST /api/v1/search`, then fetch by the returned
+   `fetch_ref` or source path).
+5. **Wiki-only** -- if corpus/canonical source access is unavailable, answer
    from compiled wiki but explicitly tell the user you could not verify against
    the original source. Still name the main relevant texts or collection docs.
+
+Paths in `source_docs` frontmatter, especially `development/data/markdown/...`,
+are provenance labels from the preprocessing pipeline. Do not assume those files
+exist in the public skill repo or current workspace; search/fetch by title,
+source path, or `fetch_ref` instead.
 
 ### Reading search results
 
@@ -249,6 +274,22 @@ Every major point should have:
 | Correctness | Consistent with topic's correctness anchors | Contradicting tradition positions (especially Nyingma vs Gelug) |
 | Transparency | Honest about what can't be verified | Silent when source access is unavailable |
 | Focus | Core question thoroughly developed | Shallow survey of tangential topics |
+
+### Study roadmap checklist
+
+For study roadmaps, curricula, or "where should I start?" answers, verify that
+the plan covers:
+
+- **Foundational prerequisites**: 闻法方式, 出离心/四厌世心, 皈依, 菩提心, 因果取舍 as appropriate to the user's level.
+- **正理**: which reasoning methods or doctrinal tools are learned at each stage, not just a list of books.
+- **观察/安住次第**: distinguish analytical study/contemplation from resting or stabilization practice.
+- **因果防偏**: explicitly guard against "空性否定因果", bypassing ethics, or using high view to skip basics.
+- **Local citations**: support the sequence with local corpus evidence when source access is available.
+
+End roadmap answers with a short source-scope note, for example: "Source scope:
+used skill references + local corpus search + fetched source excerpts; did not
+review full original transcripts end-to-end." If only wiki references were used,
+say that plainly.
 
 ### Anti-patterns
 
