@@ -2,8 +2,7 @@
 name: buddhism
 description: |
   Answer questions about Buddhist philosophy using Nyingma tradition sources.
-  TRIGGER when: user asks about Buddhist philosophy, 中观/Madhyamaka, 空性/sunyata, 龙树/Nagarjuna, 月称/Chandrakirti, 静命/Shantarakshita, 应成派/Prasangika, 自续派/Svatantrika, 瑜伽行中观, 二谛, 无自性, 缘起, 离戏, 四边/四句, 五大因, 离一多因, 人无我/法无我, 所破, 能破, 中论, 入中论, 四百论, 中观庄严论, 解义慧剑, 自空/他空, 如来藏, 二理妙车, 单空/大离戏, 相似胜义/真实胜义, 中观四步境界, 阿赖耶识, 四理/四种理, 四法依, 量理/因明, 现量/比量, 净见量, 了义/不了义, 唯识/yogachara, 瑜伽行, 八识, 末那识, 三自性/三性, 遍计所执, 依他起, 圆成实, 三无性, 唯识所现, 弥勒菩萨, 无著, 世亲, 弥勒五论, 大乘经庄严论, 辩中边论, 辨法法性论, 八识转四智, 三身四智, 大圆镜智, 转依, 种姓品, 四秘密四意趣, 般若/prajnaparamita, 维摩诘经/无垢称经, 维摩诘居士, 不二法门, 心净国土净, 烦恼即菩提, 戒律/vinaya, 密法/tantra, 大圆满/dzogchen, 净土/pure-land, 极乐世界, 阿弥陀佛, 极乐愿文, 往生四因, 七支供, 明观福田, 疑障五百岁, 乔美仁波切, 喇拉曲智仁波切, 俱舍/abhidharma, 加行/foundations, 菩提心, 道次第, or any Buddhist concepts, debates, reasoning methods, or questions about Buddhist philosophical schools.
-  Use judgment for adjacent questions when Buddhist framing or correctness anchors may help. Do not trigger for general programming tasks or code changes unrelated to Buddhist content.
+  Trigger for Buddhist concepts, debates, practice frameworks, reasoning methods, scriptures, philosophical schools, or topic areas such as 中观/Madhyamaka, 唯识/Yogachara, 如来藏, 般若, 净土, 俱舍/Abhidharma, 戒律/Vinaya, 密法/Tantra, 大圆满/Dzogchen, 加行/foundations, 菩提心, 量理/因明, and related Chinese or Sanskrit terms. Do not trigger for general programming tasks or code changes unrelated to Buddhist content.
 ---
 
 # Buddhist Philosophy Answering Framework (Nyingma Tradition)
