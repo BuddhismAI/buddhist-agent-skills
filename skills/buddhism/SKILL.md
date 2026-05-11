@@ -13,19 +13,20 @@ This skill guides how to search, interpret, construct answers, and choose repres
 
 ## 1. Answering Workflow
 
-Adapt depth to question complexity. A simple follow-up may need only steps 1-2; a deep first-time explanation benefits from all five. For first-time questions about a covered doctrinal term, reasoning method, school distinction, or correctness-anchor topic, read at least one relevant `references/...` file before corpus search even when a direct source search might also work. Skip the reference-file read only for named-source/passage lookup or everyday basics where no framework judgment is needed.
+Adapt depth to question complexity. A simple follow-up may need only steps 1-2; a deep first-time explanation benefits from the full workflow. For first-time questions about a covered doctrinal term, reasoning method, school distinction, or correctness-anchor topic, read at least one relevant `references/...` file before corpus search even when a direct source search might also work. Skip the reference-file read only for named-source/passage lookup or everyday basics where no framework judgment is needed.
 
 1. **Analyze** -- run the Question Analysis Scaffold (§6) to identify register, aspects to address, routing targets, and out-of-scope concerns. Produces a concrete answer skeleton *before* reading any file. Also scan the pattern library (`references/methodology/question-patterns.md`) for a matching question shape.
 2. **Read** -- load the topic reference docs and collection docs the scaffold's Topic Routing step identified. Topic index gives orientation; reference docs give framework; collection docs give depth.
-3. **Draft** -- write an answer from wiki knowledge, following the aspect skeleton from step 1. Treat this as a scaffold: mark where citations would strengthen it, and do not finalize a workspace card from wiki/reference knowledge alone.
-4. **Ground** -- search the source corpus for `ref:` citations before finalizing workspace cards. Citations are especially required for study roadmaps, multi-stage curricula, doctrinal definitions, practice instructions, comparisons, and claims derived from topic references. If MCP corpus tools are unavailable, read `references/public-api.md` and use the REST API quick source check before giving up on source grounding.
-5. **Verify** -- check against the topic's correctness anchors, especially for positions that diverge from training data.
+3. **Draft** -- write an answer from wiki knowledge, following the aspect skeleton from step 1. If the agent has a workspace/notepad/card surface, create a visible first draft there and mark where citations would strengthen it. If no workspace surface exists, briefly tell the user what you are going to check next (1-2 concise sentences), then continue; do not turn the plan into a long answer. In either environment, keep claims modest and do not finalize from wiki/reference knowledge alone.
+4. **Continue** -- after the scaffold exists, keep working autonomously. Identify which claims need source evidence, which parts of the user's question are still thin, and whether original sources may refine or challenge the skeleton. Do not stop just because the wiki/reference layer gave a coherent outline.
+5. **Ground** -- search the source corpus for `ref:` citations before finalizing. Citations are especially required for study roadmaps, multi-stage curricula, doctrinal definitions, practice instructions, comparisons, and claims derived from topic references. If a workspace surface exists, edit the same card to add citations, remove citation-gap markers, and correct unsupported claims. If no workspace surface exists, integrate the evidence into the final conversational answer instead. If MCP corpus tools are unavailable, read `references/public-api.md` and use the REST API quick source check before giving up on source grounding.
+6. **Verify** -- check against the topic's correctness anchors, especially for positions that diverge from training data.
    For study roadmaps or curriculum cards with several named texts, stages, and
    practice steps, use the runtime `validate` subagent after grounding if it is
    available.
-6. **Disclose** -- for study roadmaps and curriculum answers, end with a brief source-scope note stating whether the answer used skill references only, local corpus search, fetched full source text, or original transcripts end-to-end.
+7. **Disclose** -- for study roadmaps and curriculum answers, end with a brief source-scope note stating whether the answer used skill references only, local corpus search, fetched full source text, or original transcripts end-to-end.
 
-For sourced doctrinal definitions, school comparisons, study roadmaps, and framework-sensitive explanations, the cited content should be preserved in a Markdown workspace card. Chat can summarize what the card contains, but should not be the only place where the sourced answer lives.
+For sourced doctrinal definitions, school comparisons, study roadmaps, and framework-sensitive explanations, preserve the cited content in a Markdown workspace card when the agent has a workspace/notepad/card surface. Chat can summarize what the card contains, but should not be the only place where the sourced answer lives. If no workspace surface exists, give the sourced answer directly in chat with clear citations or source names.
 
 ## 2. Question-Type Routing
 
@@ -116,16 +117,22 @@ For every non-trivial Buddhist knowledge question, follow this flow:
    wiki.
 2. **Read the reference file** with the normal `read` tool. These files give
    the intellectual framework, not final evidence.
-3. **Write a quick scaffold** from the wiki framework when useful. Mark where
-   citations are needed.
-4. **Do targeted corpus search** with evidence tools (`search_hybrid`,
+3. **Create a quick scaffold** from the wiki framework when useful. If a
+   workspace/notepad/card surface exists, write it there and mark where
+   citations are needed. If not, say briefly what you plan to search or verify
+   next, then continue without waiting for user confirmation.
+4. **Continue from scaffold to research**. Identify load-bearing claims,
+   thin axes, and places where source evidence may refine the skeleton.
+5. **Do targeted corpus search** with evidence tools (`search_hybrid`,
    `search_local`, `search_fashi`, `search_corpus_keyword`, `fetch_corpus`,
    `fetch_fashi`, or canonical tools as appropriate) for `ref:` citations
    grounding specific claims.
-5. **Edit the answer** to add citations and evidence.
+6. **Update the answer** to add citations and evidence. In workspace
+   environments, edit the same card; otherwise fold the evidence into the final
+   chat answer.
 
 The wiki gives you enough to write a good initial answer immediately. Don't wait for corpus search to start writing.
-But if you wrote a workspace card from the wiki, continue to the grounding step before final chat. A final Buddhist study card with zero `ref:` citations is not acceptable when source access is available; either keep it explicitly provisional with citation gaps, or edit it into a cited card.
+But the wiki is a launchpad, not the finish line. If you wrote a workspace card from the wiki, continue to the grounding step before final chat. If no workspace exists, a short verbal plan/status replaces the scaffold card, but it does not replace the grounding step. A final Buddhist study card or final chat answer with zero source support is not acceptable when source access is available; either keep it explicitly provisional because evidence tools are unavailable, or revise it into a cited/sourced answer. For complex, comparative, roadmap, or citation-seeking questions, the final output should show the results of research and judgment, not merely the skill reference's skeleton.
 
 **Fallback:** If `search_skill_refs` is unavailable, fall back to the topic's
 Concept Router + Grep. If corpus search is also unavailable, answer from the
