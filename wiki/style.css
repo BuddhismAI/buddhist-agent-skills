@@ -208,11 +208,35 @@ a:hover { text-decoration: underline; }
 .sb-home a:visited { color: var(--text-heading); }
 .sb-home a.active { color: var(--active-border); }
 .sb-section-title {
-  padding: 0.5rem 1rem 0.2rem;
+  padding: 0.65rem 1rem 0.25rem;
   font-weight: 600;
   font-size: 0.8rem;
   color: var(--text-dim);
   letter-spacing: 0.03em;
+}
+.sb-kind-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 0.45rem;
+  border-top: 1px solid var(--border-light);
+}
+.sb-kind-title span {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+.sb-collections-title {
+  margin-top: 0.8rem;
+}
+.sb-topic-title {
+  padding: 0.32rem 1rem 0.18rem;
+  font-weight: 650;
+  font-size: 0.88rem;
+  color: var(--text-heading);
+  margin-top: 0.12rem;
 }
 .sb-coll-title {
   padding: 0.4rem 1rem 0.2rem;
@@ -242,6 +266,9 @@ a:hover { text-decoration: underline; }
 .sb-coll-title a { color: var(--text-heading); }
 .sb-coll-title a:visited { color: var(--text-heading); }
 .sb-coll-title a.active { color: var(--active-border); }
+.sb-topic-title a { color: var(--text-heading); }
+.sb-topic-title a:visited { color: var(--text-heading); }
+.sb-topic-title a.active { color: var(--active-border); }
 .sb-pages {
   list-style: none;
   margin: 0;
@@ -264,6 +291,15 @@ a:hover { text-decoration: underline; }
   border-left: 3px solid var(--active-border);
   padding-left: calc(1rem - 3px);
   font-weight: 600;
+  color: var(--active-border);
+}
+.sb-topic-pages li a {
+  padding-left: 1.35rem;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+}
+.sb-topic-pages li.active a {
+  padding-left: calc(1.35rem - 3px);
   color: var(--active-border);
 }
 .sb-pages .sb-indent { padding-left: 1.8rem; }

@@ -71,6 +71,22 @@ def sidebar_label(stem):
     return label
 
 
+def topic_display_title(page_or_name):
+    title = page_or_name.title if isinstance(page_or_name, Page) else str(page_or_name)
+    title = re.sub(r"\s*(?:Topic Guide|Topic Index)\s*$", "", title, flags=re.I).strip()
+    title = title.replace("—", "-").split(" - ")[0].strip()
+    m = re.match(r"(.+?)\s*\((.+?)\)$", title)
+    if m:
+        return f"{m.group(2).strip()} / {m.group(1).strip()}"
+    return title.replace("-", " ").title()
+
+
+def topic_page_label(page):
+    if page.src.name == "index.md":
+        return "总览"
+    return page.title
+
+
 def page_sort_key(name):
     if name == "结构总览.md":
         return (0, 0)
@@ -145,13 +161,28 @@ def organize(pages):
     return colls
 
 
-def topic_pages(pages):
-    result = []
+def topic_groups(pages):
+    groups = {}
     for key, pg in pages.items():
-        if key.startswith("topics/"):
-            result.append(pg)
-    result.sort(key=lambda p: str(p.rel))
-    return result
+        if not key.startswith("topics/"):
+            continue
+        parts = Path(key).parts
+        if len(parts) < 2:
+            continue
+        topic = parts[1]
+        groups.setdefault(topic, {"index": None, "pages": []})
+        if pg.src.name == "index.md":
+            groups[topic]["index"] = pg
+        else:
+            groups[topic]["pages"].append(pg)
+
+    for group in groups.values():
+        group["pages"].sort(key=lambda p: p.title)
+
+    return dict(sorted(
+        groups.items(),
+        key=lambda item: topic_display_title(item[1]["index"] or item[0]),
+    ))
 
 
 def all_coll_pages(coll):
@@ -191,19 +222,20 @@ def breadcrumbs(page, colls):
     elif parts[0] == "topics":
         topic_name = parts[1] if len(parts) >= 2 else ""
         topic_index_url = f"{r}topics/{topic_name}/index.html"
-        crumbs.append(f'<a href="{topic_index_url}">{topic_name} 专题</a>')
+        crumbs.append(f'<a href="{topic_index_url}">{topic_display_title(page if page.src.name == "index.md" else topic_name)} 专题</a>')
         if page.src.name != "index.md":
-            crumbs.append(page.label)
+            crumbs.append(topic_page_label(page))
     elif parts[0] == "maps":
         crumbs.append(page.label)
     return " › ".join(crumbs)
 
 
-def sidebar(page, colls, topic_pgs):
+def sidebar(page, colls, topics):
     r = page.root
     current_coll = page.collection
     parts = page.rel.parts
     in_topics = parts[0] == "topics" if parts else False
+    current_topic = parts[1] if in_topics and len(parts) >= 2 else None
     lines = []
 
     # Home link
@@ -211,16 +243,30 @@ def sidebar(page, colls, topic_pgs):
     lines.append(f'<div class="sb-home"><a href="{r}index.html"{cls}>首页</a></div>')
 
     # Topics section
-    expanded_cls = " sb-expanded" if in_topics else ""
-    lines.append(f'<div class="sb-section-title sb-toggle{expanded_cls}">主题专题</div>')
-    hidden = "" if in_topics else ' style="display:none"'
-    lines.append(f'<ul class="sb-pages sb-collapsible"{hidden}>')
-    for tp in topic_pgs:
-        cls = ' class="active"' if tp is page else ""
-        lines.append(f'  <li{cls}><a href="{r}{tp.out}">{tp.label}</a></li>')
-    lines.append("</ul>")
+    lines.append('<div class="sb-section-title sb-kind-title">主题专题 <span>Topics</span></div>')
+    for topic, group in topics.items():
+        index = group["index"]
+        expanded = current_topic == topic
+        expanded_cls = " sb-expanded" if expanded else ""
+        title = topic_display_title(index or topic)
+        if index:
+            cls = ' class="active"' if index is page else ""
+            lines.append(f'<div class="sb-topic-title sb-toggle{expanded_cls}"><a href="{r}{index.out}"{cls}>{title}</a></div>')
+        else:
+            lines.append(f'<div class="sb-topic-title sb-toggle{expanded_cls}">{title}</div>')
+
+        hidden = "" if expanded else ' style="display:none"'
+        lines.append(f'<ul class="sb-pages sb-topic-pages sb-collapsible"{hidden}>')
+        if index:
+            cls = ' class="active"' if index is page else ""
+            lines.append(f'  <li{cls}><a href="{r}{index.out}">总览</a></li>')
+        for tp in group["pages"]:
+            cls = ' class="active"' if tp is page else ""
+            lines.append(f'  <li{cls}><a href="{r}{tp.out}">{topic_page_label(tp)}</a></li>')
+        lines.append("</ul>")
 
     # Each collection
+    lines.append('<div class="sb-section-title sb-kind-title sb-collections-title">典籍合集 <span>Collections</span></div>')
     for cname in collection_names():
         coll = colls[cname]
         ov = coll["overview"]
@@ -332,7 +378,7 @@ def build():
 
     pages = discover()
     colls = organize(pages)
-    topic_pgs = topic_pages(pages)
+    topic_pgs = topic_groups(pages)
 
     for key, page in pages.items():
         html = render_page(page, template, colls, topic_pgs)
