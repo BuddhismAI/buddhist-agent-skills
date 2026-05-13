@@ -401,6 +401,19 @@ article code {
   background: var(--bg-toc);
   padding: 0.1em 0.3em;
   border-radius: 3px;
+  overflow-wrap: anywhere;
+}
+article a.ref-code {
+  color: var(--link);
+  text-decoration: none;
+}
+article a.ref-code code {
+  color: inherit;
+  border: 1px solid color-mix(in srgb, var(--link) 24%, transparent);
+}
+article a.ref-code:hover code {
+  background: var(--active-bg);
+  text-decoration: underline;
 }
 article pre {
   background: var(--bg-toc);
@@ -414,11 +427,19 @@ article pre {
 article pre code { background: none; padding: 0; }
 
 /* -- Tables (Wikipedia-style) ---------------------------------------------- */
+.table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1.2rem 0;
+  border: 1px solid var(--border-light);
+  border-radius: 3px;
+}
 article table {
   border-collapse: collapse;
-  margin: 1rem 0;
+  margin: 0;
   font-size: 0.9375rem;
-  width: auto;
+  width: 100%;
+  min-width: min(760px, 100vw - 2rem);
   font-variant-numeric: tabular-nums;
 }
 article th {
@@ -428,11 +449,21 @@ article th {
   font-family: var(--font-ui);
   font-weight: 600;
   text-align: left;
+  white-space: nowrap;
 }
 article td {
   border: 1px solid var(--border);
-  padding: 0.4rem 0.8rem;
+  padding: 0.55rem 0.8rem;
   vertical-align: top;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+article td:first-child,
+article th:first-child {
+  min-width: 9.5rem;
+}
+article td code {
+  word-break: break-word;
 }
 
 /* -- In-page TOC box (Wikipedia-style) ------------------------------------- */

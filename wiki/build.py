@@ -12,6 +12,7 @@ import re
 import shutil
 import yaml
 import markdown
+import html as html_lib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -196,12 +197,72 @@ def all_coll_pages(coll):
 
 # -- HTML builders -----------------------------------------------------------
 
-def render_md(body):
+def build_ref_lookup(pages):
+    by_path = {key: pg for key, pg in pages.items()}
+    by_name = {}
+    duplicates = set()
+    for pg in pages.values():
+        name = pg.src.name
+        if name in by_name:
+            duplicates.add(name)
+        else:
+            by_name[name] = pg
+    for name in duplicates:
+        by_name.pop(name, None)
+    return by_path, by_name
+
+
+def resolve_ref(text, page, by_path, by_name):
+    clean = text.strip()
+    path_part = clean.split("§", 1)[0].strip()
+    if not path_part.endswith(".md"):
+        return None
+
+    candidates = []
+    if path_part.startswith(("collections/", "topics/", "maps/")):
+        candidates.append(path_part)
+    if path_part.startswith(("./", "../")):
+        candidates.append(str((page.rel.parent / path_part).as_posix()))
+    if "/" not in path_part:
+        match = by_name.get(path_part)
+        if match:
+            return f"{page.root}{match.out}"
+
+    for candidate in candidates:
+        normalized = str(Path(candidate).as_posix())
+        while normalized.startswith("../"):
+            normalized = normalized[3:]
+        if normalized in by_path:
+            return f"{page.root}{by_path[normalized].out}"
+    return None
+
+
+def linkify_code_refs(html, page, pages):
+    by_path, by_name = build_ref_lookup(pages)
+
+    def repl(match):
+        raw = html_lib.unescape(match.group(1))
+        href = resolve_ref(raw, page, by_path, by_name)
+        if not href:
+            return match.group(0)
+        label = html_lib.escape(raw)
+        return f'<a class="ref-code" href="{href}"><code>{label}</code></a>'
+
+    return re.sub(r"<code>([^<]*?\.md(?:\s*§[^<]*)?)</code>", repl, html)
+
+
+def wrap_tables(html):
+    return re.sub(r"(<table>.*?</table>)", r'<div class="table-wrap">\1</div>', html, flags=re.S)
+
+
+def render_md(body, page, pages):
     md = markdown.Markdown(extensions=["tables", "toc", "fenced_code"])
     html = md.convert(body)
     toc = getattr(md, "toc", "")
     heading_count = toc.count("<li>")
     html = re.sub(r'(href="[^"]*?)\.md([#"])', r'\1.html\2', html)
+    html = linkify_code_refs(html, page, pages)
+    html = wrap_tables(html)
     return html, toc, heading_count
 
 
@@ -347,8 +408,8 @@ def build_search_index(pages):
 
 # -- Assemble ----------------------------------------------------------------
 
-def render_page(page, template, colls, topic_pgs):
-    content, toc_html, hcount = render_md(page.body)
+def render_page(page, template, colls, topic_pgs, pages):
+    content, toc_html, hcount = render_md(page.body, page, pages)
     sb = sidebar(page, colls, topic_pgs)
     bc = breadcrumbs(page, colls)
     bc_html = f'<nav class="breadcrumbs">{bc}</nav>' if bc else ""
@@ -381,7 +442,7 @@ def build():
     topic_pgs = topic_groups(pages)
 
     for key, page in pages.items():
-        html = render_page(page, template, colls, topic_pgs)
+        html = render_page(page, template, colls, topic_pgs, pages)
         out = SITE / page.out
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(html, "utf-8")
