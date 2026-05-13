@@ -466,6 +466,66 @@ article td code {
   word-break: break-word;
 }
 
+/* -- Concept router cards -------------------------------------------------- */
+.router-list {
+  display: grid;
+  gap: 0.9rem;
+  margin: 1.2rem 0;
+}
+.router-card {
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--bg-content) 92%, var(--bg-toc));
+  padding: 0.85rem 1rem 0.95rem;
+}
+.router-card-title {
+  margin: 0 0 0.7rem;
+  padding: 0;
+  border: 0;
+  font-family: var(--font-ui);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  font-weight: 650;
+}
+article .router-card-title strong {
+  font-weight: inherit;
+}
+.router-card-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.7rem;
+}
+.router-field {
+  min-width: 0;
+}
+.router-label {
+  margin-bottom: 0.25rem;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: var(--text-dim);
+  letter-spacing: 0.03em;
+}
+.router-value {
+  min-width: 0;
+  line-height: 1.7;
+}
+.router-value code {
+  display: inline;
+  line-height: 1.65;
+}
+.router-value .ref-code {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: baseline;
+}
+
+@media (max-width: 900px) {
+  .router-card-body {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* -- In-page TOC box (Wikipedia-style) ------------------------------------- */
 .toc-box {
   float: right;

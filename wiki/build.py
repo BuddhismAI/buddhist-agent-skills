@@ -251,17 +251,65 @@ def linkify_code_refs(html, page, pages):
     return re.sub(r"<code>([^<]*?\.md(?:\s*§[^<]*)?)</code>", repl, html)
 
 
+def extract_cells(row_html, tag):
+    pattern = rf"<{tag}[^>]*>(.*?)</{tag}>"
+    return [cell.strip() for cell in re.findall(pattern, row_html, flags=re.S)]
+
+
+def is_empty_cell(cell):
+    text = re.sub(r"<[^>]+>", "", cell).strip()
+    return text in {"", "-", "--", "—"}
+
+
+def transform_router_tables(html):
+    def repl(match):
+        table = match.group(1)
+        header_match = re.search(r"<tr[^>]*>(.*?)</tr>", table, flags=re.S)
+        if not header_match:
+            return table
+
+        headers = [re.sub(r"<[^>]+>", "", h).strip() for h in extract_cells(header_match.group(1), "th")]
+        if headers[:3] != ["问题主题", "首先读", "下钻"]:
+            return table
+
+        cards = ['<div class="router-list">']
+        for row_html in re.findall(r"<tr[^>]*>(.*?)</tr>", table, flags=re.S)[1:]:
+            cells = extract_cells(row_html, "td")
+            if len(cells) < 3:
+                continue
+            cards.append('<section class="router-card">')
+            cards.append(f'<h3 class="router-card-title">{cells[0]}</h3>')
+            cards.append('<div class="router-card-body">')
+            cards.append('<div class="router-field router-primary">')
+            cards.append('<div class="router-label">首先读</div>')
+            cards.append(f'<div class="router-value">{cells[1]}</div>')
+            cards.append('</div>')
+            if not is_empty_cell(cells[2]):
+                cards.append('<div class="router-field">')
+                cards.append('<div class="router-label">下钻</div>')
+                cards.append(f'<div class="router-value">{cells[2]}</div>')
+                cards.append('</div>')
+            cards.append('</div>')
+            cards.append('</section>')
+        cards.append('</div>')
+        return "\n".join(cards)
+
+    return re.sub(r"(<table>.*?</table>)", repl, html, flags=re.S)
+
+
 def wrap_tables(html):
     return re.sub(r"(<table>.*?</table>)", r'<div class="table-wrap">\1</div>', html, flags=re.S)
 
 
 def render_md(body, page, pages):
+    body = re.sub(r"^## Concept Router\s*$", "## 概念索引", body, flags=re.M)
     md = markdown.Markdown(extensions=["tables", "toc", "fenced_code"])
     html = md.convert(body)
     toc = getattr(md, "toc", "")
     heading_count = toc.count("<li>")
     html = re.sub(r'(href="[^"]*?)\.md([#"])', r'\1.html\2', html)
     html = linkify_code_refs(html, page, pages)
+    html = transform_router_tables(html)
     html = wrap_tables(html)
     return html, toc, heading_count
 
