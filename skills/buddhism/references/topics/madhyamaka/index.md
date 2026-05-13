@@ -90,6 +90,8 @@ When you need knowledge on a specific concept, use this table. **Start with the 
 | **现量/比量** (认识论) | -- | `../../collections/解义慧剑/证成理·现量四种.md`, `../../collections/解义慧剑/证成理·比量与量之四分.md` |
 | **解义慧剑全论结构** | -- | `../../collections/解义慧剑/结构总览.md` |
 | **中观四步境界** | `debates.md` §修行 | `../../collections/中论/序-论名与顶礼句.md` §四步境界, `../../collections/解义慧剑/证成理·比量与量之四分.md` §除胜义量之诤 |
+| **中论·慈诚罗珠堪布讲记** | `../../collections/中论/结构总览.md` | `../../collections/中论/慈诚罗珠堪布讲记要义.md` (第二讲记来源、科判兼容、逐品增量), `../../collections/中论/中观实修路径-慈诚罗珠堪布讲记.md` (空性实修路径) |
+| **中观实修 / 观察心来住去** | `debates.md` §修行, `reasoning-methods.md` §运用能破抉择心的本性 | `../../collections/中论/中观实修路径-慈诚罗珠堪布讲记.md`, `../../collections/中论/慈诚罗珠堪布讲记要义.md` §品02 |
 | **五相/七相推理** | `reasoning-methods.md` | `../../collections/中论/推理方法/五相推理.md`, `../../collections/中论/品10-观燃可燃品.md`, `../../collections/中论/品22-观如来品.md` |
 | **业与因果** | -- | `../../collections/中论/品17-观业品.md` |
 | **涅槃 / 轮涅无二** | -- | `../../collections/中论/品25-观涅槃品.md` |
@@ -182,7 +184,7 @@ Framework documents -- read first to understand the landscape:
 
 | Collection | Status | Docs | Coverage |
 |-----------|--------|------|----------|
-| 中论 | Complete | 37 | 27 品 + 7 推理方法 + 序 + 结构总览 |
+| 中论 | Complete | 38 | 27 品 + 7 推理方法 + 序 + 结构总览 + 慈诚罗珠堪布讲记补充层 + 实修路径 |
 | 中观庄严论 | Complete | 34 | 24 sections + 4 推理方法 + 4 序分 + 2 专题 |
 | 中观四百论 | Complete | 19 | 16 品 + 序 + 结构总览 |
 | 解义慧剑 | Complete | 7 | 5 topic docs + 结构总览 |

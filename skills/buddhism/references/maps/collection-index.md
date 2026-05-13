@@ -2,7 +2,7 @@
 
 | Collection | Primary Topic | Related Topics | Status | Top Docs | 推理方法 | Total |
 |-----------|--------------|----------------|--------|----------|----------|-------|
-| 中论 | madhyamaka | -- | Complete | 29 | 7 | 36 |
+| 中论 | madhyamaka | -- | Complete | 31 | 7 | 38 |
 | 中观庄严论 | madhyamaka | pramana, yogachara (reserved) | Complete | 27 | 4 | 31 |
 | 中观四百论 | madhyamaka | foundations | Complete | 18 | 0 | 18 |
 | 解义慧剑 | madhyamaka | pramana | Complete | 6 | 0 | 6 |
@@ -32,7 +32,7 @@ Collections declare their topic membership in `结构总览.md` frontmatter via 
 
 | Topic | Collections | Total Docs |
 |---|---|---|
-| madhyamaka | 5 | 106 (incl. 17 reasoning-method docs) |
+| madhyamaka | 5 | 108 (incl. 17 reasoning-method docs) |
 | foundations | 5 | 82 |
 | abhidharma | 1 | 29 |
 | tathagatagarbha | 1 | 15 |
