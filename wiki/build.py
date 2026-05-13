@@ -20,7 +20,28 @@ SITE = ROOT / "site"
 WIKI = ROOT / "wiki"
 
 EXCLUDE = {"log.md", "verification-report.md", "public-api.md"}
-COLLECTIONS = ["中论", "中观庄严论", "中观四百论", "解义慧剑", "定解宝灯论", "俱舍论", "大圆满前行", "入行论", "修心七要", "佛子行", "二规教言论", "宝性论", "维摩诘经"]
+COLLECTION_ORDER = [
+    "中论",
+    "中观庄严论",
+    "中观四百论",
+    "解义慧剑",
+    "定解宝灯论",
+    "俱舍论",
+    "大圆满前行",
+    "入行论",
+    "修心七要",
+    "佛子行",
+    "二规教言论",
+    "宝性论",
+    "维摩诘经",
+]
+
+
+def collection_names():
+    names = [p.name for p in (REFS / "collections").iterdir() if p.is_dir()]
+    known = [name for name in COLLECTION_ORDER if name in names]
+    extra = sorted(name for name in names if name not in COLLECTION_ORDER)
+    return known + extra
 
 
 # -- Parsing -----------------------------------------------------------------
@@ -102,7 +123,7 @@ def discover():
 
 def organize(pages):
     colls = {}
-    for cname in COLLECTIONS:
+    for cname in collection_names():
         overview, chapters, reasoning = None, [], []
         prefix = f"collections/{cname}/"
         for key, pg in pages.items():
@@ -200,7 +221,7 @@ def sidebar(page, colls, topic_pgs):
     lines.append("</ul>")
 
     # Each collection
-    for cname in COLLECTIONS:
+    for cname in collection_names():
         coll = colls[cname]
         ov = coll["overview"]
         expanded = (current_coll == cname)
