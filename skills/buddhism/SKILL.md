@@ -19,7 +19,7 @@ Adapt depth to question complexity. A simple follow-up may need only steps 1-2; 
 2. **Read** -- load the topic reference docs and collection docs the scaffold's Topic Routing step identified. Topic index gives orientation; reference docs give framework; collection docs give depth.
 3. **Draft** -- write an answer from wiki knowledge, following the aspect skeleton from step 1. If the agent has a workspace/notepad/card surface, create a visible first draft there and mark where citations would strengthen it. If no workspace surface exists, briefly tell the user what you are going to check next (1-2 concise sentences), then continue; do not turn the plan into a long answer. In either environment, keep claims modest and do not finalize from wiki/reference knowledge alone.
 4. **Continue** -- after the scaffold exists, keep working autonomously. Identify which claims need source evidence, which parts of the user's question are still thin, and whether original sources may refine or challenge the skeleton. Do not stop just because the wiki/reference layer gave a coherent outline.
-5. **Ground** -- search the source corpus for `ref:` citations before finalizing. Citations are especially required for study roadmaps, multi-stage curricula, doctrinal definitions, practice instructions, comparisons, and claims derived from topic references. If a workspace surface exists, edit the same card to add citations, remove citation-gap markers, and correct unsupported claims. If no workspace surface exists, integrate the evidence into the final conversational answer instead. If MCP corpus tools are unavailable, read `references/public-api.md` and use the REST API quick source check before giving up on source grounding.
+5. **Ground** -- search the source corpus for `ref:` citations before finalizing. Citations are especially required for study roadmaps, multi-stage curricula, doctrinal definitions, practice instructions, comparisons, and claims derived from topic references. Do not cite `references/...` wiki docs as answer `ref:` entries; use them only to form the knowledge map, choose routes, and identify what real source text to fetch. Answer `ref:` citations must come from original teaching/source text found through corpus search/fetch tools (or an explicit note that source verification was unavailable). If a workspace surface exists, edit the same card to add citations, remove citation-gap markers, and correct unsupported claims. If no workspace surface exists, integrate the evidence into the final conversational answer instead. If MCP corpus tools are unavailable, read `references/public-api.md` and use the REST API quick source check before giving up on source grounding.
 6. **Verify** -- check against the topic's correctness anchors, especially for positions that diverge from training data.
    For study roadmaps or curriculum cards with several named texts, stages, and
    practice steps, use the runtime `validate` subagent after grounding if it is
@@ -126,7 +126,9 @@ For every non-trivial Buddhist knowledge question, follow this flow:
 5. **Do targeted corpus search** with evidence tools (`search_hybrid`,
    `search_local`, `search_fashi`, `search_corpus_keyword`, `fetch_corpus`,
    `fetch_fashi`, or canonical tools as appropriate) for `ref:` citations
-   grounding specific claims.
+   grounding specific claims. Do not turn `read_ref.path` values or
+   `references/...` wiki paths into answer `ref:` citations; those are
+   exploration pointers, not user-visible evidence.
 6. **Update the answer** to add citations and evidence. In workspace
    environments, edit the same card; otherwise fold the evidence into the final
    chat answer.
@@ -146,7 +148,7 @@ Use the richest source access available in the current environment:
 2. **Public agents without MCP tools**: Read `references/public-api.md` early. Use its REST workflow to search `sources: ["local"]` and then fetch by `fetch_ref`. If a search result lacks `fetch_ref`, use its `source_path` / `sourcePath` metadata as the corpus fetch path.
 3. **Offline agents**: Use installed files under `references/` as framework only. State that original corpus verification was unavailable.
 
-Reference wiki docs and source corpus are different layers. `references/topics/*` and `references/collections/*` are compiled study wikis used for routing, synthesis, and correctness anchors; they are not final evidence. The source corpus is the original teaching text accessed through MCP or REST search/fetch tools.
+Reference wiki docs and source corpus are different layers. `references/topics/*` and `references/collections/*` are compiled study wikis used for routing, synthesis, correctness anchors, and exploration pointers; they are not final evidence and must not be presented as answer `ref:` citations. The source corpus is the original teaching text accessed through MCP or REST search/fetch tools, and only source-corpus passages should become user-visible `ref:` citations unless the answer explicitly says source verification was unavailable.
 
 Path convention: from `SKILL.md`, use full repo-relative paths such as
 `references/topics/madhyamaka/index.md`. Inside a reference doc, shorter links

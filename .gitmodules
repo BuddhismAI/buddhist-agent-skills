@@ -1,3 +1,4 @@
 [submodule "development"]
 	path = development
 	url = git@github.com:BuddhismAI/buddhist-agent-skills-dev.git
+	branch = main

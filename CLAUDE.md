@@ -34,6 +34,7 @@ The initial topic is `madhyamaka`, but the repository is intended to grow into a
 - All development work (specs, design docs, ingestion pipelines, evaluation data, architecture notes) belongs in the `development/` submodule.
 - Only publish finished skills and their references to the top-level `skills/` directory.
 - The `development/` directory is a **separate git repo** (submodule). Changes to files in `development/` must be committed and PR'd in the submodule repo (`BuddhismAI/buddhist-agent-skills-dev`), not the parent. After merging in the submodule, update the submodule pointer in the parent with `git add development && git commit`.
+- Keep `development/` pinned to a specific submodule commit in the parent repo. The submodule tracks `main` for explicit refreshes only; to repin to latest, run `git submodule update --remote development`, review the resulting pointer change, then commit it in the parent repo.
 
 ## Open Source Defaults
 
