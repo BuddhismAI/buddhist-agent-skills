@@ -1,6 +1,6 @@
 # Question Patterns
 
-Recurring question shapes and their decomposition recipes. Consulted **after** the Question Analysis Scaffold in `SKILL.md` §6 has run steps ①–④ (Surface / Register / Context / Underlying need). A match supplies aspect + routing hints and `Don'ts`; absence doesn't block answering.
+Recurring question shapes and their decomposition recipes. Consulted **after** the Question Analysis Scaffold in `SKILL.md` §5 has run steps ①–④ (Surface / Register / Context / Underlying need). A match supplies aspect + routing hints and `Don'ts`; absence doesn't block answering.
 
 Patterns are indexed by surface signals. Each entry follows a fixed template:
 
